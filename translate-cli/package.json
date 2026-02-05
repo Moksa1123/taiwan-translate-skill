@@ -1,0 +1,56 @@
+{
+  "name": "taiwan-translate-skill",
+  "version": "1.0.0",
+  "description": "CLI to install Taiwan Traditional Chinese translation skill for AI coding assistants",
+  "bin": {
+    "tw-translate": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "assets"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "taiwan",
+    "traditional-chinese",
+    "translation",
+    "localization",
+    "i18n",
+    "wordpress",
+    "zh-tw",
+    "glossary",
+    "claude",
+    "claude-code",
+    "cursor",
+    "ai-skill",
+    "coding-assistant"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moksa1123/taiwan-translate-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Moksa1123/taiwan-translate-skill/issues"
+  },
+  "homepage": "https://github.com/Moksa1123/taiwan-translate-skill#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/prompts": "^2.4.9",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

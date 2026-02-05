@@ -1,0 +1,25 @@
+{
+  "platform": "codebuddy",
+  "displayName": "CodeBuddy",
+  "installType": "full",
+  "folderStructure": {
+    "root": ".codebuddy",
+    "skillPath": "skills/tw-translate",
+    "filename": "SKILL.md"
+  },
+  "scriptPath": "skills/tw-translate/scripts",
+  "frontmatter": {
+    "name": "tw-translate",
+    "description": "台灣正體中文翻譯工具。",
+    "user-invocable": "true"
+  },
+  "sections": {
+    "examples": true,
+    "references": true,
+    "scripts": true,
+    "quickReference": false
+  },
+  "title": "台灣正體中文翻譯技能",
+  "description": "使用 WordPress 台灣社群官方詞彙表（2,300+ 詞彙），翻譯英文軟體介面為台灣正體中文。",
+  "skillOrWorkflow": "Skill"
+}

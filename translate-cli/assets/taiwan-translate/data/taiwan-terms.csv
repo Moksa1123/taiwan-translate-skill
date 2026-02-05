@@ -1,0 +1,136 @@
+cn,tw,category,note
+保存,儲存,ui,save
+代碼,程式碼,dev,code
+程式碼,程式碼,dev,code (already correct)
+文件,檔案,ui,file/document
+程序,程式,dev,program
+窗口,視窗,ui,window
+菜單,選單,ui,menu
+工具欄,工具列,ui,toolbar
+狀態條,狀態列,ui,status bar
+標籤頁,分頁,ui,tab
+面向對象,物件導向,dev,object-oriented
+接口,介面,dev,interface
+指針,指標,dev,pointer
+數據,資料,general,data
+哈希,雜湊,dev,hash
+調試,除錯,dev,debug
+調試器,除錯器,dev,debugger
+頭文件,標頭檔,dev,header file
+寄存器,暫存器,dev,register
+軟件,軟體,general,software
+硬件,硬體,general,hardware
+信息,資訊,general,information
+視頻,影片,media,video
+音頻,音訊,media,audio
+圖片,圖片,media,image (same)
+網絡,網路,general,network
+鏈接,連結,ui,link
+鼠標,滑鼠,hardware,mouse
+鍵盤,鍵盤,hardware,keyboard (same)
+打印,列印,ui,print
+打印機,印表機,hardware,printer
+掃描儀,掃描器,hardware,scanner
+服務器,伺服器,dev,server
+客戶端,用戶端,dev,client
+數據庫,資料庫,dev,database
+字節,位元組,dev,byte
+比特,位元,dev,bit
+算法,演算法,dev,algorithm
+循環,迴圈,dev,loop
+變量,變數,dev,variable
+函數,函式,dev,function
+數組,陣列,dev,array
+字符串,字串,dev,string
+對象,物件,dev,object
+類,類別,dev,class
+方法,方法,dev,method (same)
+屬性,屬性,dev,property (same)
+事件,事件,dev,event (same)
+回調,回呼,dev,callback
+異步,非同步,dev,async
+同步,同步,dev,sync (same)
+線程,執行緒,dev,thread
+進程,程序,dev,process
+內存,記憶體,dev,memory
+緩存,快取,dev,cache
+堆棧,堆疊,dev,stack
+隊列,佇列,dev,queue
+遞歸,遞迴,dev,recursion
+迭代,迭代,dev,iteration (same)
+封裝,封裝,dev,encapsulation (same)
+繼承,繼承,dev,inheritance (same)
+多態,多型,dev,polymorphism
+抽象,抽象,dev,abstract (same)
+泛型,泛型,dev,generic (same)
+註解,註解,dev,annotation (same)
+註釋,註解,dev,comment
+編譯,編譯,dev,compile (same)
+編譯器,編譯器,dev,compiler (same)
+解釋器,直譯器,dev,interpreter
+運行時,執行階段,dev,runtime
+框架,框架,dev,framework (same)
+庫,函式庫,dev,library
+模塊,模組,dev,module
+組件,元件,dev,component
+插件,外掛,dev,plugin
+擴展,擴充功能,dev,extension
+配置,設定,ui,configuration
+設置,設定,ui,settings
+選項,選項,ui,option (same)
+參數,參數,dev,parameter (same)
+默認,預設,ui,default
+激活,啟用,ui,activate
+禁用,停用,ui,disable
+啟動,啟動,ui,start (same)
+終止,終止,ui,terminate (same)
+取消,取消,ui,cancel (same)
+確定,確定,ui,confirm (same)
+提交,提交,ui,submit (same)
+上傳,上傳,ui,upload (same)
+下載,下載,ui,download (same)
+導入,匯入,ui,import
+導出,匯出,ui,export
+複製,複製,ui,copy (same)
+粘貼,貼上,ui,paste
+剪切,剪下,ui,cut
+撤銷,復原,ui,undo
+重做,重做,ui,redo (same)
+刷新,重新整理,ui,refresh
+加載,載入,ui,load
+卸載,卸載,ui,unload (same)
+安裝,安裝,ui,install (same)
+卸載,解除安裝,ui,uninstall
+更新,更新,ui,update (same)
+升級,升級,ui,upgrade (same)
+回滾,還原,dev,rollback
+備份,備份,ui,backup (same)
+恢復,還原,ui,restore
+日誌,日誌,dev,log (same)
+錯誤,錯誤,dev,error (same)
+警告,警告,dev,warning (same)
+異常,例外,dev,exception
+崩潰,當機,dev,crash
+內核,核心,dev,kernel
+驅動,驅動程式,dev,driver
+協議,協定,dev,protocol
+端口,連接埠,dev,port
+帶寬,頻寬,network,bandwidth
+延遲,延遲,network,latency (same)
+吞吐量,吞吐量,network,throughput (same)
+響應,回應,dev,response
+請求,請求,dev,request (same)
+會話,工作階段,dev,session
+令牌,權杖,dev,token
+加密,加密,security,encryption (same)
+解密,解密,security,decryption (same)
+認證,驗證,security,authentication
+授權,授權,security,authorization (same)
+權限,權限,security,permission (same)
+賬戶,帳戶,ui,account
+賬號,帳號,ui,account number
+用戶,使用者,ui,user
+密碼,密碼,ui,password (same)
+登錄,登入,ui,login
+登出,登出,ui,logout (same)
+註冊,註冊,ui,register (same)
