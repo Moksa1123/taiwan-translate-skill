@@ -37,7 +37,8 @@ translate-cli/
 │   │   │   └── glossary.csv  # 詞彙表（2,300+ 詞彙）
 │   │   ├── scripts/          # Python 腳本
 │   │   │   ├── search.py     # BM25 搜尋引擎
-│   │   │   └── translate.py  # 翻譯工具
+│   │   │   ├── lookup.py     # 詞彙查詢（不代換整句）
+│   │   │   └── po.py         # PO 抽取與把關（extract/validate）
 │   │   └── references/       # 參考文件
 │   │       └── STYLE_GUIDE.md
 │   │

@@ -37,7 +37,13 @@ user-invocable: true
 
 ### 智能工具
 - `scripts/search.py` - BM25 詞彙搜尋引擎
-- `scripts/translate.py` - 自動翻譯工具
+- `scripts/lookup.py` - 詞彙查詢（列出一句話命中的詞彙與建議譯法，**不**代換整句）
+- `scripts/po.py` - PO/POT 抽取與把關（`extract` 抽出未翻譯項目、`validate` 翻譯把關）
+
+> ⚠️ **核心理念：模型翻譯 + 腳本參考與把關。**
+> 詞彙表是「確保用詞一致的參考」，**不得用子字串自動代換來翻譯整句**。
+> 整句翻譯一律由模型完成（查詞彙表 + 遵循風格指南），再用 `po.py validate` 把關。
+> （舊版 `translate.py` 的自動代換已停用，會產生亂碼，例如 bug→程式碼錯誤 連 debug 都中。）
 
 ### 何時使用此技能
 - 翻譯 WordPress 外掛/佈景主題
@@ -84,28 +90,40 @@ python scripts/search.py "設置" --source fanhuaji
 | `--source wp` | 只搜尋 WP 官方 |
 | `--source fanhuaji` | 只搜尋繁化姬 |
 
-### 翻譯工具 (translate.py)
+### 詞彙查詢 (lookup.py)
 
-自動翻譯（WP 官方優先，繁化姬備用）：
+列出一句話命中的詞彙與建議譯法，**供翻譯參考**。此工具**不**回傳代換後的整句：
 
 ```bash
-# 翻譯英文文字
-python scripts/translate.py "Please select a theme"
+# 查詢一句話命中的詞彙
+python scripts/lookup.py "Please select a theme"
 
-# 翻譯簡體中文為台灣正體
-python scripts/translate.py "请选择一个默认设置"
-
-# 翻譯檔案
-python scripts/translate.py --file input.txt
-
-# 翻譯 PO 檔案
-python scripts/translate.py --po path/to/plugin.po
+# 查詢檔案
+python scripts/lookup.py --file input.txt
 
 # JSON 輸出
-python scripts/translate.py "Click Settings" --format json
+python scripts/lookup.py "Click Settings" --format json
 ```
 
-輸出會顯示詞彙來源統計（WP官方 / 繁化姬）。
+英文以「單字邊界」比對，不會發生 bug 嵌在 debug、nd 嵌在其他單字中的誤匹配。
+輸出僅列命中詞彙與來源統計（WP官方 / 繁化姬），整句翻譯請由模型依風格指南完成。
+
+### PO 工具 (po.py)
+
+```bash
+# 抽出未翻譯的 msgid（保留多行/複數/msgctxt/行號），交給模型翻譯
+python scripts/po.py extract  path/to/plugin.pot
+
+# 翻譯把關：佔位符/首字大小寫/空譯/中國用語/中英空格/全形標點/用詞一致性
+python scripts/po.py validate path/to/plugin.po
+
+# JSON 輸出
+python scripts/po.py extract  path/to/plugin.pot --format json
+python scripts/po.py validate path/to/plugin.po  --format json
+```
+
+`validate` **只報告不修改**，是否套用由模型／人判斷。檢查項目對齊 Loco／gettext，
+並加上台灣中文專屬規則（中國用語、中英半形空格、全形標點、用詞一致性）。
 
 ---
 
@@ -295,7 +313,12 @@ python scripts/translate.py "Click Settings" --format json
 - 請使用 WordPress 5.0 以上版本
 - 前往 Settings 頁面
 
-### 5. 複數處理
+### 5. 首字大小寫
+若原文以小寫字母開頭（如 `an experiment…`），譯文勿以大寫英文單字起頭，
+改以中文字或符號開頭，以避免 Loco「missing the initial lowercase」誤報：
+- `an experiment by Automattic` → 由 Automattic 進行的實驗（✗ `Automattic 進行的…` 以大寫英文起頭）
+
+### 6. 複數處理
 中文不需要複數標記：
 - files → 檔案（不是「檔案們」）
 - users → 使用者（不是「使用者們」）
@@ -304,30 +327,38 @@ python scripts/translate.py "Click Settings" --format json
 
 ## 翻譯工作流程
 
+> 標準流程：**抽取未翻譯 → 模型翻譯（查詞彙表＋規則）→ validator 把關 → 回寫**。
+> 腳本負責「查詞彙」與「把關」，整句翻譯由模型完成，**不做子字串自動代換**。
+
 ### 翻譯一般文字
 
-1. **搜尋詞彙**
+1. **查詞彙（參考）**
 ```bash
-python scripts/search.py "<關鍵字>"
+python scripts/search.py "<關鍵字>"      # BM25 搜尋
+python scripts/lookup.py "<英文句子>"     # 列出一句話命中的詞彙
 ```
 
-2. **翻譯文字**
-```bash
-python scripts/translate.py "<英文文字>"
-```
+2. **由模型翻譯**
+依命中詞彙與風格指南（全形標點、中英空格、首字大小寫…）翻出整句。
 
 ### 翻譯 .po/.pot 檔案
 
-1. **執行翻譯**
+1. **抽出未翻譯項目**
 ```bash
-python scripts/translate.py --po path/to/plugin.pot
+python scripts/po.py extract path/to/plugin.pot
 ```
 
-2. **檢查輸出**
-- 輸出檔案：`plugin-translated.po`
-- 手動審核需要調整的翻譯
+2. **由模型翻譯**
+針對抽出的 msgid，查詞彙（`lookup.py`）後依風格指南翻譯，回寫到 msgstr。
+保留佔位符（`%s`、`%1$s`）、HTML 標籤與首尾空白。
 
-3. **完成**
+3. **把關**
+```bash
+python scripts/po.py validate path/to/plugin.po
+```
+依報告修正（佔位符不符、首字大小寫、中國用語、中英空格…）。
+
+4. **完成**
 - 將翻譯好的 .po 檔案放回原位置
 
 ---
@@ -366,6 +397,7 @@ python scripts/search.py "<詞彙>" --limit 20
 
 ---
 
-*Taiwan Traditional Chinese Translation Skill v1.1*
+*Taiwan Traditional Chinese Translation Skill v1.2*
+*理念：模型翻譯 + 腳本參考與把關（詞彙查詢 lookup.py、PO 抽取與把關 po.py）*
 *支援雙來源策略：WP 官方 + 繁化姬*
 *詞彙表更新日期：2026/02*

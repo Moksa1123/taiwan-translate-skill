@@ -60,7 +60,8 @@ taiwan-translate-skill/
 │   │   │   └── glossary.csv  # 詞彙表 (2,300+ 詞彙)
 │   │   ├── scripts/
 │   │   │   ├── search.py     # BM25 搜尋引擎
-│   │   │   └── translate.py  # 自動翻譯工具
+│   │   │   ├── lookup.py     # 詞彙查詢（不代換整句）
+│   │   │   └── po.py         # PO 抽取與把關（extract/validate）
 │   │   └── references/
 │   │       └── STYLE_GUIDE.md
 │   └── templates/
@@ -120,8 +121,10 @@ tw-translate info
 | 指令 | 說明 | 範例 |
 |------|------|------|
 | `/tw-translate <詞彙>` | 搜尋詞彙翻譯 | `/tw-translate plugin` |
-| `/tw-translate "<文字>"` | 翻譯整段文字 | `/tw-translate "Select a theme"` |
-| `/tw-translate --po <檔案>` | 翻譯 PO/POT 檔案 | `/tw-translate --po zh_TW.pot` |
+| `/tw-translate "<文字>"` | 翻譯整段文字（模型依詞彙＋規則翻譯） | `/tw-translate "Select a theme"` |
+| `/tw-translate <檔案>.po` | 抽取未翻譯 → 模型翻譯 → 把關 | `/tw-translate zh_TW.pot` |
+
+> 理念：詞彙表僅供參考，**不做子字串自動代換**。整句翻譯由模型完成，再用 `po.py validate` 把關。
 
 ### 搜尋詞彙
 
@@ -154,16 +157,18 @@ tw-translate info
 /tw-translate "Please select a theme from the dashboard"
 ```
 
-**輸出範例：**
+詞彙查詢會列出命中的詞彙供參考，整句由模型依風格指南翻譯：
 ```
 原文: Please select a theme from the dashboard
-翻譯: 請從控制台選擇一個佈景主題
+命中詞彙: theme→佈景主題、dashboard→控制台、select→選取
+模型翻譯: 請從控制台選取佈景主題
 ```
 
 ### 翻譯 PO/POT 檔案
 
+標準流程：**抽取未翻譯 → 模型翻譯 → 把關**：
 ```
-/tw-translate --po path/to/your-plugin-zh_TW.pot
+/tw-translate path/to/your-plugin-zh_TW.pot
 ```
 
 ---
@@ -183,24 +188,29 @@ python scripts/search.py "post type"
 python scripts/search.py 外掛 --domain zh
 python scripts/search.py 佈景主題 --domain zh
 
-# 精確搜尋
-python scripts/search.py plugin --exact
-
 # 限制結果數量
 python scripts/search.py plugin --limit 5
 ```
 
-### 翻譯文字
+### 詞彙查詢（供翻譯參考，不代換整句）
 
 ```bash
-# 翻譯單段文字
-python scripts/translate.py "Please select a theme"
+python scripts/lookup.py "Please select a theme"
+python scripts/lookup.py --file input.txt
+python scripts/lookup.py "Click Settings" --format json
+```
 
-# 翻譯 PO 檔案
-python scripts/translate.py --po path/to/file.pot
+### PO 抽取與把關
 
-# 輸出到新檔案
-python scripts/translate.py --po input.pot --output output.po
+```bash
+# 抽出未翻譯項目（交給模型翻譯）
+python scripts/po.py extract  path/to/file.pot
+
+# 翻譯把關（佔位符/首字大小寫/中國用語/中英空格…，只報告不改）
+python scripts/po.py validate path/to/file.po
+
+# JSON 輸出
+python scripts/po.py extract  path/to/file.pot --format json
 ```
 
 ---

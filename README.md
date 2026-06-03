@@ -77,7 +77,8 @@ taiwan-translate-skill/
 │   │       │   └── taiwan-terms.csv  # 繁化姬規則
 │   │       └── scripts/
 │   │           ├── search.py         # BM25 搜尋
-│   │           └── translate.py      # 翻譯工具
+│   │           ├── lookup.py         # 詞彙查詢（不代換整句）
+│   │           └── po.py             # PO 抽取與把關
 │   └── package.json
 ├── README.md
 ├── LICENSE

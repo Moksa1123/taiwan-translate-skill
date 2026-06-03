@@ -9,7 +9,7 @@ export async function infoCommand(): Promise<void> {
 
   // 讀取 package.json 取得版本
   const packagePath = path.join(__dirname, '..', '..', 'package.json');
-  let version = '1.0.0';
+  let version = '1.1.0';
   try {
     const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf-8'));
     version = pkg.version;

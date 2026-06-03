@@ -26,14 +26,23 @@ python scripts/search.py "外掛" --domain zh
 python scripts/search.py "theme" --format json
 ```
 
-### 翻譯工具 (translate.py)
+### 詞彙查詢 (lookup.py)
+
+> 理念：詞彙表僅供參考，**不做整句自動代換**。整句翻譯由模型完成，再用 `po.py validate` 把關。
 
 ```bash
-# 翻譯文字
-python scripts/translate.py "Please select a theme"
+# 列出一句話命中的詞彙（供翻譯參考）
+python scripts/lookup.py "Please select a theme"
+```
 
-# 翻譯 PO 檔案
-python scripts/translate.py --po path/to/plugin.po
+### PO 工具 (po.py)
+
+```bash
+# 抽出未翻譯項目（交給模型翻譯）
+python scripts/po.py extract path/to/plugin.pot
+
+# 翻譯把關（佔位符/首字/中國用語/空格…）
+python scripts/po.py validate path/to/plugin.po
 ```
 
 ## 核心詞彙速查表
@@ -103,6 +112,7 @@ python scripts/translate.py --po path/to/plugin.po
 2. **品牌名稱**：保留英文（WordPress, Google, Apple）
 3. **標點符號**：使用全形標點（，。、；：「」）
 4. **中英混排**：中英文之間加半形空格
+5. **首字大小寫**：原文小寫開頭時，譯文勿以大寫英文起頭，改以中文字或符號開頭（避免 Loco「missing the initial lowercase」誤報）
 
 ## 詞彙表來源
 

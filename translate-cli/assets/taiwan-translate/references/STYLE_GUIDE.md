@@ -169,6 +169,25 @@
 
 ---
 
+## 首字大小寫
+
+### 原文小寫開頭時，譯文勿以大寫英文起頭
+
+當原文以 ASCII 小寫字母開頭（常見於句子片段，如 `an experiment…`、`by default…`），
+譯文若以大寫英文單字起頭，Loco Translate 會警告「missing the initial lowercase」。
+應改以中文字或符號開頭：
+
+✓ 正確：
+- `an experiment by Automattic` → 由 Automattic 進行的實驗
+- `by default, posts are public` → 預設情況下，文章為公開
+
+✗ 錯誤：
+- `an experiment by Automattic` → `Automattic 進行的實驗`（以大寫英文起頭）
+
+> 可用 `python scripts/po.py validate <file.po>` 自動偵測此問題（code: `initial-lowercase`）。
+
+---
+
 ## 複數處理
 
 ### 中文不需要複數標記
