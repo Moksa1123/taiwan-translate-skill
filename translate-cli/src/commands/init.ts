@@ -162,12 +162,14 @@ export async function initCommand(options: InitOptions): Promise<void> {
       console.log(chalk.bold('  常見使用範例:'));
       console.log(`    ${chalk.cyan('$')} /tw-translate plugin`);
       console.log(`    ${chalk.cyan('$')} /tw-translate "Please select a theme"`);
-      console.log(`    ${chalk.cyan('$')} /tw-translate --po file.pot`);
+      console.log(`    ${chalk.cyan('$')} /tw-translate file.pot`);
       console.log();
 
       console.log(chalk.bold('  Python 腳本（進階）:'));
       console.log(`    ${chalk.cyan('$')} python scripts/search.py <關鍵字>`);
-      console.log(`    ${chalk.cyan('$')} python scripts/translate.py "<文字>"`);
+      console.log(`    ${chalk.cyan('$')} python scripts/lookup.py "<文字>"   # 詞彙查詢`);
+      console.log(`    ${chalk.cyan('$')} python scripts/po.py extract <檔案>  # 抽出未翻譯`);
+      console.log(`    ${chalk.cyan('$')} python scripts/po.py validate <檔案> # 翻譯把關`);
       console.log();
 
       console.log(chalk.green('  提示: 重啟 AI 助手後，直接用 /tw-translate 就可以開始使用了！'));

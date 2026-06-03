@@ -14,7 +14,8 @@ taiwan-translate/
 │   └── glossary.csv      # 詞彙表（2,300+ 詞彙）
 ├── scripts/
 │   ├── search.py         # BM25 詞彙搜尋引擎
-│   └── translate.py      # 自動翻譯工具
+│   ├── lookup.py         # 詞彙查詢（列出命中詞彙，不代換整句）
+│   └── po.py             # PO 抽取與把關（extract / validate）
 └── references/
     └── STYLE_GUIDE.md    # 翻譯風格指南
 ```
@@ -30,17 +31,22 @@ taiwan-translate/
 
 ### Python 腳本
 
+> 理念：腳本負責「查詞彙」與「把關」，整句翻譯由模型完成，**不做子字串自動代換**。
+
 ```bash
-# 搜尋詞彙
+# 搜尋詞彙（BM25）
 python scripts/search.py plugin
 python scripts/search.py 外掛 --domain zh
 python scripts/search.py theme --format json
 
-# 翻譯文字
-python scripts/translate.py "Click the Settings button"
+# 詞彙查詢：列出一句話命中的詞彙（供翻譯參考，不代換整句）
+python scripts/lookup.py "Click the Settings button"
 
-# 翻譯 PO 檔案
-python scripts/translate.py --po path/to/plugin.pot
+# 抽出 PO 未翻譯項目（交給模型翻譯）
+python scripts/po.py extract path/to/plugin.pot
+
+# PO 翻譯把關（佔位符/首字/中國用語/空格…）
+python scripts/po.py validate path/to/plugin.po
 ```
 
 ## 詞彙表格式

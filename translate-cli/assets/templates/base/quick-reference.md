@@ -6,11 +6,12 @@
 # 搜尋詞彙
 python scripts/search.py <關鍵字>
 
-# 翻譯文字
-python scripts/translate.py "<英文文字>"
+# 詞彙查詢（列出命中詞彙，不代換整句）
+python scripts/lookup.py "<英文文字>"
 
-# 翻譯 PO 檔案
-python scripts/translate.py --po <檔案路徑>
+# 抽出 PO 未翻譯項目 / 翻譯把關
+python scripts/po.py extract  <檔案路徑>
+python scripts/po.py validate <檔案路徑>
 ```
 
 ### 常用詞彙

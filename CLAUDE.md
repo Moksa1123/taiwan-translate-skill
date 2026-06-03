@@ -52,7 +52,14 @@ node dist/index.js info
 ### Python 工具
 
 - `scripts/search.py` - BM25 詞彙搜尋引擎
-- `scripts/translate.py` - 自動翻譯工具
+- `scripts/lookup.py` - 詞彙查詢（列出命中詞彙，**不**代換整句）
+- `scripts/po.py` - PO 抽取與把關（`extract` / `validate`）
+- `scripts/translate.py` - **已停用**（舊版子字串自動代換會產生亂碼，導向新工具）
+
+## 核心理念
+
+**模型翻譯 + 腳本參考與把關。** 詞彙表僅供參考，不得用子字串自動代換翻譯整句。
+標準工作流程：抽取未翻譯 → 模型翻譯（查詞彙＋規則）→ validator 把關 → 回寫。
 
 ## 雙來源策略
 
