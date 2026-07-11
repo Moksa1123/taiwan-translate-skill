@@ -63,7 +63,7 @@ export const AI_TYPES: AIType[] = [
 export const AI_FOLDERS: Record<Exclude<AIType, 'all'>, string[]> = {
   claude: ['.claude'],
   cursor: ['.cursor'],
-  windsurf: ['.windsurf'],
+  windsurf: ['.devin', '.windsurf'],  // renamed Devin Desktop 2026/6; legacy .windsurf still detected
   antigravity: ['.agent'],
   copilot: ['.github'],
   kiro: ['.kiro'],
@@ -80,7 +80,7 @@ export const AI_FOLDERS: Record<Exclude<AIType, 'all'>, string[]> = {
 export const AI_DISPLAY_NAMES: Record<Exclude<AIType, 'all'>, string> = {
   claude: 'Claude Code',
   cursor: 'Cursor',
-  windsurf: 'Windsurf',
+  windsurf: 'Devin Desktop (formerly Windsurf)',
   antigravity: 'Antigravity / Generic Agent',
   copilot: 'GitHub Copilot',
   kiro: 'Kiro',

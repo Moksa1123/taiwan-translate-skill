@@ -25,7 +25,7 @@
 | 功能 | 說明 |
 |------|------|
 | **2,300+ 專業詞彙** | 來自 WordPress 台灣社群官方詞彙表，持續更新 |
-| **14 種 AI 平台** | 支援 Claude Code、Cursor、Windsurf、Copilot 等主流 AI 助手 |
+| **14 種 AI 平台** | 支援 Claude Code、Cursor、Devin Desktop（原 Windsurf）、Copilot 等主流 AI 助手 |
 | **BM25 智能搜尋** | 高效能詞彙搜尋引擎，支援模糊匹配 |
 | **自動翻譯工具** | 支援純文字和 PO/POT 檔案批次翻譯 |
 | **台灣在地化** | 使用台灣正體中文用語，非中國簡轉繁 |
@@ -237,8 +237,8 @@ python scripts/po.py extract  path/to/file.pot --format json
 <td>AI-first 程式編輯器</td>
 </tr>
 <tr>
-<td><b>Windsurf</b></td>
-<td><code>.windsurf</code></td>
+<td><b>Devin Desktop</b>（原 Windsurf）</td>
+<td><code>.devin</code>（舊版 <code>.windsurf</code>）</td>
 <td align="center">-</td>
 <td>Codeium IDE</td>
 </tr>

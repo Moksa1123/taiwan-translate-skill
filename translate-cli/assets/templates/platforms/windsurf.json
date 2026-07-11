@@ -1,9 +1,9 @@
 {
   "platform": "windsurf",
-  "displayName": "Windsurf",
+  "displayName": "Devin Desktop (formerly Windsurf)",
   "installType": "full",
   "folderStructure": {
-    "root": ".windsurf",
+    "root": ".devin",
     "skillPath": "skills/tw-translate",
     "filename": "SKILL.md"
   },

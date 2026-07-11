@@ -26,7 +26,7 @@
 |------|------|
 | **2,300+ 官方詞彙** | WordPress 台灣社群官方詞彙表 |
 | **雙來源策略** | WP 官方優先，繁化姬台灣化規則備用 |
-| **14 種 AI 平台** | 支援 Claude Code、Cursor、Windsurf、Copilot 等 |
+| **14 種 AI 平台** | 支援 Claude Code、Cursor、Devin Desktop（原 Windsurf）、Copilot 等 |
 | **BM25 智能搜尋** | 高效能詞彙搜尋引擎 |
 | **PO/POT 翻譯** | 支援 WordPress 翻譯檔案格式 |
 
@@ -48,7 +48,7 @@ npx taiwan-translate-skill init
 |------|------|
 | `claude` | Claude Code CLI |
 | `cursor` | Cursor Editor |
-| `windsurf` | Windsurf Editor |
+| `windsurf` | Devin Desktop（原 Windsurf，2026/6 改名；裝到 `.devin/`，舊版 `.windsurf/` 仍可偵測） |
 | `copilot` | GitHub Copilot |
 | `cline` | Cline Extension |
 | `roo` | Roo Cline |

@@ -69,7 +69,7 @@ node dist/index.js info
 
 ## 支援的 AI 平台
 
-共 14 種：claude, cursor, windsurf, copilot, cline, roo, aider, continue, codegpt, cody, tabnine, amazon-q, gemini, all
+共 14 種：claude, cursor, windsurf（Devin Desktop，2026/6 改名，裝到 .devin/）, copilot, cline, roo, aider, continue, codegpt, cody, tabnine, amazon-q, gemini, all
 
 ## 注意事項
 
