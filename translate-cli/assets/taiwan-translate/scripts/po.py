@@ -247,7 +247,9 @@ def cmd_extract(path: str, fmt: str) -> int:
 # ---------------------------------------------------------------------------
 
 # printf 風格佔位符：%s %d %1$s %02d %.2f %% 等
-_PLACEHOLDER_RE = re.compile(r'%(?:\d+\$)?[-+ 0#]*\d*(?:\.\d+)?[bcdeEfFgGosuxX%]')
+# 註：旗標字元集刻意排除空格旗標（" "），否則英文散文中的「% of」「% the」
+#     會被誤判為 "% o" 佔位符（空格旗標在 WP i18n 幾乎不會用到）。
+_PLACEHOLDER_RE = re.compile(r'%(?:\d+\$)?[-+0#]*\d*(?:\.\d+)?[bcdeEfFgGosuxX%]')
 # HTML 標籤
 _TAG_RE = re.compile(r'</?[a-zA-Z][a-zA-Z0-9]*(?:\s[^<>]*?)?/?>')
 # 句尾標點（半形 + 全形）
@@ -265,26 +267,59 @@ def _placeholders(s: str) -> List[str]:
     return sorted(p for p in _PLACEHOLDER_RE.findall(s) if p != '%%')
 
 
+def _norm_tag(t: str) -> str:
+    # 只取標籤「簽章」：標籤名稱 + 是否為結束標籤/自閉合標籤，**忽略屬性內容**。
+    # 因為翻譯 title／alt／placeholder／aria-label 等屬性文字是正常且應該做的，
+    # 不應被誤判為「標籤不一致」；真正要抓的是「標籤被刪掉或新增」。
+    name_m = re.match(r'</?\s*([a-zA-Z][a-zA-Z0-9]*)', t)
+    name = name_m.group(1).lower() if name_m else t.strip().lower()
+    closing = '/' if t.lstrip().startswith('</') else ''
+    selfclose = '/' if t.rstrip().endswith('/>') else ''
+    return closing + name + selfclose
+
+
 def _tags(s: str) -> List[str]:
-    return sorted(t.lower() for t in _TAG_RE.findall(s))
+    return sorted(_norm_tag(t) for t in _TAG_RE.findall(s))
+
+
+# 高精確度的「中國用語」對照清單（用於 validate 的雜訊極小化）。
+#
+# 為何不直接掃 taiwan-terms.csv：
+#     該 CSV 是「繁化姬」整篇轉換用規則，內含大量「正體→正體」的單字用詞偏好
+#     （例：類→類別、庫→函式庫、對象→物件）。以子字串比對掃描，會在完全正確的
+#     台灣用語中誤判（分類、媒體庫、回覆對象…），製造大量假警報——這正是舊版
+#     translate.py 子字串比對的同一個坑。
+#
+# 因此這裡改用「人工精選、可安全子字串比對」的清單：
+#     1. 含簡體字者：正體譯文本就不該出現簡體字，子字串比對 100% 安全。
+#     2. 少數正體字形但語意明確的中國科技用語（軟件/硬件/插件…），在 WP 介面語境
+#        不致與台灣常用詞衝突。
+# 仍刻意排除在台灣為合法詞、會造成誤判的多義詞：
+#     文件（=document）、程序（=procedure）、質量（=mass）、視頻/網絡之正體歧義等。
+_CHINA_TERMS: List[tuple] = [
+    # 含簡體字（安全）
+    ("主题", "佈景主題"), ("软件", "軟體"), ("硬件", "硬體"), ("数据", "資料"),
+    ("服务器", "伺服器"), ("默认", "預設"), ("视频", "影片"), ("音频", "音訊"),
+    ("文件夹", "資料夾"), ("鼠标", "滑鼠"), ("质量", "品質"), ("缓存", "快取"),
+    ("卸载", "解除安裝"), ("安装", "安裝"), ("网络", "網路"), ("用户", "使用者"),
+    ("设置", "設定"), ("屏幕", "螢幕"), ("字体", "字型"), ("内存", "記憶體"),
+    ("登录", "登入"), ("注册", "註冊"), ("邮箱", "信箱"), ("复制", "複製"),
+    ("粘贴", "貼上"), ("剪贴板", "剪貼簿"), ("打印", "列印"), ("下载", "下載"),
+    ("上传", "上傳"), ("链接", "連結"), ("图片", "圖片"), ("帮助", "說明"),
+    ("确认", "確認"), ("启用", "啟用"), ("保存", "儲存"),
+    ("当前", "目前"), ("访问", "存取"), ("权限", "權限"), ("队列", "佇列"),
+    # 註：不收錄「禁用」——在台灣為合法詞（禁用字詞＝disallowed words），非中國用語。
+    # 正體字形、語意明確的中國科技用語（WP 介面語境安全）
+    ("插件", "外掛"), ("軟件", "軟體"), ("硬件", "硬體"), ("郵件", "郵件"),
+]
+# 防禦：移除任何 cn 與 tw 相同、或 cn 為 tw 子字串（屬用詞展開而非中國用語）者。
+_CHINA_TERMS = [(cn, tw) for (cn, tw) in _CHINA_TERMS if cn != tw and cn not in tw]
+_CHINA_TERMS.sort(key=lambda p: len(p[0]), reverse=True)
 
 
 def load_china_terms(data_dir: str) -> List[tuple]:
-    """從 taiwan-terms.csv 取得 (中國用語, 台灣用語) 掃描清單。"""
-    path = os.path.join(data_dir, 'taiwan-terms.csv')
-    pairs = []
-    if not os.path.exists(path):
-        return pairs
-    with open(path, 'r', encoding='utf-8-sig') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            cn = (row.get('cn', '') or '').strip()
-            tw = (row.get('tw', '') or '').strip()
-            if cn and tw and cn != tw:
-                pairs.append((cn, tw))
-    # 較長的詞優先比對，避免短詞先吃掉
-    pairs.sort(key=lambda p: len(p[0]), reverse=True)
-    return pairs
+    """回傳高精確度的 (中國用語, 台灣用語) 掃描清單（精選，非整份 CSV）。"""
+    return _CHINA_TERMS
 
 
 def _leading_ws(s: str) -> str:
@@ -310,6 +345,9 @@ def validate_entry(e: POEntry, china_terms: List[tuple]) -> List[Dict]:
 
     # 空譯
     if e.is_untranslated():
+        # 原文本身只有空白（如 " " 間隔字串）時，譯文為空白/空是合理的，不算未翻譯。
+        if src.strip() == '':
+            return issues
         add('error', 'empty', '未翻譯（msgstr 為空）')
         return issues  # 空譯就不再做其他比對
 
@@ -359,15 +397,19 @@ def validate_entry(e: POEntry, china_terms: List[tuple]) -> List[Dict]:
             shown = '、'.join(hit[:6]) + ('…' if len(hit) > 6 else '')
             add('warning', 'china-term', f"疑似中國用語：{shown}")
 
+        # 先移除佔位符與 HTML 標籤，避免把 %1$s/%2$s 的尾字母（如 "s表"）或標籤
+        # 誤判為「中英相鄰缺空格」。佔位符多會被換成連結/數值，其邊界不需要空格。
+        tgt_clean = _TAG_RE.sub(' ', _PLACEHOLDER_RE.sub(' ', tgt))
+
         # 中英之間缺半形空格
-        if _CJK_ASCII_RE.search(tgt):
-            m = _CJK_ASCII_RE.search(tgt)
+        m = _CJK_ASCII_RE.search(tgt_clean)
+        if m:
             add('info', 'cjk-space',
                 f"中英/數字相鄰處可能缺半形空格（近「{m.group(0)}」）")
 
         # 全形字後接半形標點
-        if _HALF_PUNCT_AFTER_CJK_RE.search(tgt):
-            m = _HALF_PUNCT_AFTER_CJK_RE.search(tgt)
+        m = _HALF_PUNCT_AFTER_CJK_RE.search(tgt_clean)
+        if m:
             add('info', 'fullwidth-punct',
                 f"中文後疑似誤用半形標點（近「{m.group(0)}」，建議全形）")
 
