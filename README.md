@@ -49,16 +49,17 @@ npx taiwan-translate-skill init
 | `claude` | Claude Code CLI |
 | `cursor` | Cursor Editor |
 | `windsurf` | Devin Desktop（原 Windsurf，2026/6 改名；裝到 `.devin/`，舊版 `.windsurf/` 仍可偵測） |
-| `copilot` | GitHub Copilot |
-| `cline` | Cline Extension |
-| `roo` | Roo Cline |
-| `aider` | Aider |
+| `copilot` | GitHub Copilot（Agent Skills，裝到 `.github/skills/`） |
+| `antigravity` | Antigravity / Generic Agent |
+| `kiro` | Kiro（AWS AI IDE） |
+| `codex` | OpenAI Codex CLI |
+| `qoder` | Qoder |
+| `roocode` | Roo Code |
+| `gemini` | Gemini CLI |
+| `trae` | Trae（ByteDance AI IDE） |
+| `opencode` | OpenCode |
 | `continue` | Continue Extension |
-| `codegpt` | CodeGPT |
-| `cody` | Sourcegraph Cody |
-| `tabnine` | Tabnine |
-| `amazon-q` | Amazon Q |
-| `gemini` | Google Gemini |
+| `codebuddy` | CodeBuddy |
 | `all` | 安裝到所有平台 |
 
 ---

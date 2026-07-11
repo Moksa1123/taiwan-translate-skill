@@ -4,10 +4,10 @@
   "installType": "full",
   "folderStructure": {
     "root": ".github",
-    "skillPath": "prompts/tw-translate",
+    "skillPath": "skills/tw-translate",
     "filename": "SKILL.md"
   },
-  "scriptPath": "prompts/tw-translate/scripts",
+  "scriptPath": "skills/tw-translate/scripts",
   "frontmatter": {
     "name": "tw-translate",
     "description": "台灣正體中文翻譯工具。",

@@ -240,7 +240,7 @@ python scripts/po.py extract  path/to/file.pot --format json
 <td><b>Devin Desktop</b>（原 Windsurf）</td>
 <td><code>.devin</code>（舊版 <code>.windsurf</code>）</td>
 <td align="center">-</td>
-<td>Codeium IDE</td>
+<td>Cognition IDE（2026/6 由 Windsurf 改名）</td>
 </tr>
 <tr>
 <td><b>Antigravity</b></td>
@@ -252,7 +252,7 @@ python scripts/po.py extract  path/to/file.pot --format json
 <td><b>GitHub Copilot</b></td>
 <td><code>.github</code></td>
 <td align="center">-</td>
-<td>GitHub AI 助手</td>
+<td>GitHub AI 助手（Agent Skills：<code>.github/skills/</code>）</td>
 </tr>
 <tr>
 <td><b>Kiro</b></td>
