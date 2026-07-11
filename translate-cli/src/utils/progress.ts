@@ -51,7 +51,7 @@ export const BANNER = `
   ║      ██║   ╚███╔███╔╝       ██║   ██║  ██║         ║
   ║      ╚═╝    ╚══╝╚══╝        ╚═╝   ╚═╝  ╚═╝         ║
   ║                                                    ║
-  ║          Taiwan Translate Skill v1.1.0             ║
+  ║          Taiwan Translate Skill v1.2.0             ║
   ║                                                    ║
   ╚════════════════════════════════════════════════════╝
 `;
@@ -59,7 +59,7 @@ export const BANNER = `
 // Mini Banner - 不用框線避免對齊問題
 export const MINI_BANNER = `
   ════════════════════════════════════
-    Taiwan Translate Skill  v1.1.0
+    Taiwan Translate Skill  v1.2.0
     台灣正體中文翻譯技能包
   ════════════════════════════════════
 `;

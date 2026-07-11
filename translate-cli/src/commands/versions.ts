@@ -13,7 +13,7 @@ export async function versionsCommand(): Promise<void> {
 
   // 讀取當前版本
   const packagePath = path.join(__dirname, '..', '..', 'package.json');
-  let currentVersion = '1.1.0';
+  let currentVersion = '1.2.0';
   try {
     const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf-8'));
     currentVersion = pkg.version;
