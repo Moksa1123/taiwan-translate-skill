@@ -4,7 +4,7 @@ This file provides guidance to Claude Code when working with this translation sk
 
 ## Skill Overview
 
-Taiwan Translate Skill 是台灣正體中文翻譯工具，使用 WordPress 台灣社群官方詞彙表（2,300+ 詞彙），協助將英文軟體介面翻譯成符合台灣用語習慣的正體中文。
+Taiwan Translate Skill 是台灣正體中文翻譯工具，使用 WordPress 台灣社群官方詞彙表（筆數見 `python scripts/check_numbers.py --stats`），協助將英文軟體介面翻譯成符合台灣用語習慣的正體中文。
 
 ## Core Principle
 
@@ -38,7 +38,7 @@ python scripts/po.py validate path/to/file.po
 taiwan-translate/
 ├── SKILL.md              # Main skill documentation
 ├── EXAMPLES.md           # Translation examples
-├── data/glossary.csv     # Glossary (2,300+ terms)
+├── data/glossary.csv     # WP 台灣詞彙表（每列附 doc_url／retrieved_on／trust）
 ├── data/taiwan-terms.csv # 繁化姬台灣化規則（亦作為 validator 中國用語掃描清單）
 ├── scripts/
 │   ├── search.py         # BM25 search engine

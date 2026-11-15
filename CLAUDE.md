@@ -46,8 +46,8 @@ node dist/index.js info
 
 ### 詞彙表
 
-- `data/glossary.csv` - WP 官方詞彙表（2,300+ 詞彙）
-- `data/taiwan-terms.csv` - 繁化姬台灣化規則（130+ 詞彙）
+- `data/glossary.csv` - WP 官方詞彙表（筆數：`python scripts/check_numbers.py --stats`）
+- `data/taiwan-terms.csv` - 中國用語→台灣用語對照（每列以繁化姬 API 實測，見 trust 欄）
 
 ### Python 工具
 

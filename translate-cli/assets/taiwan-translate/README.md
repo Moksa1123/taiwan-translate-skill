@@ -11,7 +11,7 @@ taiwan-translate/
 ├── EXAMPLES.md           # 翻譯範例集
 ├── README.md             # 本說明文件
 ├── data/
-│   └── glossary.csv      # 詞彙表（2,300+ 詞彙）
+│   └── glossary.csv      # WP 台灣詞彙表（筆數：scripts/check_numbers.py --stats）
 ├── scripts/
 │   ├── search.py         # BM25 詞彙搜尋引擎
 │   ├── lookup.py         # 詞彙查詢（列出命中詞彙，不代換整句）
