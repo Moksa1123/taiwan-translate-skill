@@ -17,6 +17,8 @@ PO/POT 檔案工具：抽取未翻譯項目 + 翻譯把關（validator）
     python po.py validate path/to/file.po
     python po.py validate path/to/file.po --format json
 
+exit code（validate）：有「錯誤」（空譯、佔位符不符）回 1，否則 0。警告與提示不影響 exit code。
+
 參考：對齊 Loco Translate / gettext 的常見檢查，並加上台灣中文專屬規則。
 """
 
@@ -465,7 +467,7 @@ def cmd_validate(path: str, fmt: str) -> int:
             'counts': counts,
             'issues': sorted(all_issues, key=lambda x: (x['line'], _LEVEL_ORDER[x['level']])),
         }, ensure_ascii=False, indent=2))
-        return 0
+        return 1 if counts['error'] else 0
 
     print(f"\n檔案：{path}")
     print(f"條目：{len([e for e in entries if not e.is_header])}")
@@ -481,7 +483,8 @@ def cmd_validate(path: str, fmt: str) -> int:
         print(f"        原文：{mid!r}")
     print("=" * 72)
     print("提示：validator 只報告不修改，是否套用由模型／人判斷。")
-    return 0
+    # 關卡：有「錯誤」（空譯、佔位符不符）回 1；警告與提示只報告，不擋。
+    return 1 if counts['error'] else 0
 
 
 # ---------------------------------------------------------------------------
