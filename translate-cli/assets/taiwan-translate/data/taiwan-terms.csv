@@ -1,136 +1,136 @@
-cn,tw,category,note
-保存,儲存,ui,save
-代碼,程式碼,dev,code
-程式碼,程式碼,dev,code (already correct)
-文件,檔案,ui,file/document
-程序,程式,dev,program
-窗口,視窗,ui,window
-菜單,選單,ui,menu
-工具欄,工具列,ui,toolbar
-狀態條,狀態列,ui,status bar
-標籤頁,分頁,ui,tab
-面向對象,物件導向,dev,object-oriented
-接口,介面,dev,interface
-指針,指標,dev,pointer
-數據,資料,general,data
-哈希,雜湊,dev,hash
-調試,除錯,dev,debug
-調試器,除錯器,dev,debugger
-頭文件,標頭檔,dev,header file
-寄存器,暫存器,dev,register
-軟件,軟體,general,software
-硬件,硬體,general,hardware
-信息,資訊,general,information
-視頻,影片,media,video
-音頻,音訊,media,audio
-圖片,圖片,media,image (same)
-網絡,網路,general,network
-鏈接,連結,ui,link
-鼠標,滑鼠,hardware,mouse
-鍵盤,鍵盤,hardware,keyboard (same)
-打印,列印,ui,print
-打印機,印表機,hardware,printer
-掃描儀,掃描器,hardware,scanner
-服務器,伺服器,dev,server
-客戶端,用戶端,dev,client
-數據庫,資料庫,dev,database
-字節,位元組,dev,byte
-比特,位元,dev,bit
-算法,演算法,dev,algorithm
-循環,迴圈,dev,loop
-變量,變數,dev,variable
-函數,函式,dev,function
-數組,陣列,dev,array
-字符串,字串,dev,string
-對象,物件,dev,object
-類,類別,dev,class
-方法,方法,dev,method (same)
-屬性,屬性,dev,property (same)
-事件,事件,dev,event (same)
-回調,回呼,dev,callback
-異步,非同步,dev,async
-同步,同步,dev,sync (same)
-線程,執行緒,dev,thread
-進程,程序,dev,process
-內存,記憶體,dev,memory
-緩存,快取,dev,cache
-堆棧,堆疊,dev,stack
-隊列,佇列,dev,queue
-遞歸,遞迴,dev,recursion
-迭代,迭代,dev,iteration (same)
-封裝,封裝,dev,encapsulation (same)
-繼承,繼承,dev,inheritance (same)
-多態,多型,dev,polymorphism
-抽象,抽象,dev,abstract (same)
-泛型,泛型,dev,generic (same)
-註解,註解,dev,annotation (same)
-註釋,註解,dev,comment
-編譯,編譯,dev,compile (same)
-編譯器,編譯器,dev,compiler (same)
-解釋器,直譯器,dev,interpreter
-運行時,執行階段,dev,runtime
-框架,框架,dev,framework (same)
-庫,函式庫,dev,library
-模塊,模組,dev,module
-組件,元件,dev,component
-插件,外掛,dev,plugin
-擴展,擴充功能,dev,extension
-配置,設定,ui,configuration
-設置,設定,ui,settings
-選項,選項,ui,option (same)
-參數,參數,dev,parameter (same)
-默認,預設,ui,default
-激活,啟用,ui,activate
-禁用,停用,ui,disable
-啟動,啟動,ui,start (same)
-終止,終止,ui,terminate (same)
-取消,取消,ui,cancel (same)
-確定,確定,ui,confirm (same)
-提交,提交,ui,submit (same)
-上傳,上傳,ui,upload (same)
-下載,下載,ui,download (same)
-導入,匯入,ui,import
-導出,匯出,ui,export
-複製,複製,ui,copy (same)
-粘貼,貼上,ui,paste
-剪切,剪下,ui,cut
-撤銷,復原,ui,undo
-重做,重做,ui,redo (same)
-刷新,重新整理,ui,refresh
-加載,載入,ui,load
-卸載,卸載,ui,unload (same)
-安裝,安裝,ui,install (same)
-卸載,解除安裝,ui,uninstall
-更新,更新,ui,update (same)
-升級,升級,ui,upgrade (same)
-回滾,還原,dev,rollback
-備份,備份,ui,backup (same)
-恢復,還原,ui,restore
-日誌,日誌,dev,log (same)
-錯誤,錯誤,dev,error (same)
-警告,警告,dev,warning (same)
-異常,例外,dev,exception
-崩潰,當機,dev,crash
-內核,核心,dev,kernel
-驅動,驅動程式,dev,driver
-協議,協定,dev,protocol
-端口,連接埠,dev,port
-帶寬,頻寬,network,bandwidth
-延遲,延遲,network,latency (same)
-吞吐量,吞吐量,network,throughput (same)
-響應,回應,dev,response
-請求,請求,dev,request (same)
-會話,工作階段,dev,session
-令牌,權杖,dev,token
-加密,加密,security,encryption (same)
-解密,解密,security,decryption (same)
-認證,驗證,security,authentication
-授權,授權,security,authorization (same)
-權限,權限,security,permission (same)
-賬戶,帳戶,ui,account
-賬號,帳號,ui,account number
-用戶,使用者,ui,user
-密碼,密碼,ui,password (same)
-登錄,登入,ui,login
-登出,登出,ui,logout (same)
-註冊,註冊,ui,register (same)
+﻿cn,tw,category,note,fanhuaji_out,measured_on,doc_url,trust
+保存,儲存,ui,save,保存,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+代碼,程式碼,dev,code,代碼,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+程式碼,程式碼,dev,code (already correct),程式碼,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+文件,檔案,ui,file/document,文件,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+程序,程式,dev,program,程序,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+窗口,視窗,ui,window,窗口,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+菜單,選單,ui,menu,菜單,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+工具欄,工具列,ui,toolbar,工具欄,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+狀態條,狀態列,ui,status bar,狀態條,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+標籤頁,分頁,ui,tab,標籤頁,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+面向對象,物件導向,dev,object-oriented,面向對象,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+接口,介面,dev,interface,介面,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+指針,指標,dev,pointer,指針,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+數據,資料,general,data,數據,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+哈希,雜湊,dev,hash,哈希,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+調試,除錯,dev,debug,除錯,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+調試器,除錯器,dev,debugger,除錯器,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+頭文件,標頭檔,dev,header file,頭文件,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+寄存器,暫存器,dev,register,暫存器,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+軟件,軟體,general,software,軟體,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+硬件,硬體,general,hardware,硬體,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+信息,資訊,general,information,資訊,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+視頻,影片,media,video,影片,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+音頻,音訊,media,audio,音訊,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+圖片,圖片,media,image (same),圖片,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+網絡,網路,general,network,網路,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+鏈接,連結,ui,link,連結,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+鼠標,滑鼠,hardware,mouse,滑鼠,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+鍵盤,鍵盤,hardware,keyboard (same),鍵盤,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+打印,列印,ui,print,列印,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+打印機,印表機,hardware,printer,印表機,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+掃描儀,掃描器,hardware,scanner,掃描器,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+服務器,伺服器,dev,server,伺服器,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+客戶端,用戶端,dev,client,用戶端,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+數據庫,資料庫,dev,database,資料庫,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+字節,位元組,dev,byte,位元組,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+比特,位元,dev,bit,比特,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+算法,演算法,dev,algorithm,算法,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+循環,迴圈,dev,loop,循環,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+變量,變數,dev,variable,變數,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+函數,函式,dev,function,函數,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+數組,陣列,dev,array,數組,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+字符串,字串,dev,string,字串,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+對象,物件,dev,object,對象,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+類,類別,dev,class,類,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+方法,方法,dev,method (same),方法,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+屬性,屬性,dev,property (same),屬性,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+事件,事件,dev,event (same),事件,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+回調,回呼,dev,callback,回調,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+異步,非同步,dev,async,非同步,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+同步,同步,dev,sync (same),同步,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+線程,執行緒,dev,thread,執行緒,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+進程,程序,dev,process,進程,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+內存,記憶體,dev,memory,記憶體,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+緩存,快取,dev,cache,快取,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+堆棧,堆疊,dev,stack,堆棧,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+隊列,佇列,dev,queue,隊列,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+遞歸,遞迴,dev,recursion,遞迴,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+迭代,迭代,dev,iteration (same),迭代,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+封裝,封裝,dev,encapsulation (same),封裝,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+繼承,繼承,dev,inheritance (same),繼承,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+多態,多型,dev,polymorphism,多態,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+抽象,抽象,dev,abstract (same),抽象,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+泛型,泛型,dev,generic (same),泛型,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+註解,註解,dev,annotation (same),註解,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+註釋,註解,dev,comment,註釋,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+編譯,編譯,dev,compile (same),編譯,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+編譯器,編譯器,dev,compiler (same),編譯器,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+解釋器,直譯器,dev,interpreter,解釋器,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+運行時,執行階段,dev,runtime,運行時,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+框架,框架,dev,framework (same),框架,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+庫,函式庫,dev,library,庫,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+模塊,模組,dev,module,模組,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+組件,元件,dev,component,組件,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+插件,外掛,dev,plugin,插件,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+擴展,擴充功能,dev,extension,擴展,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+配置,設定,ui,configuration,配置,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+設置,設定,ui,settings,設置,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+選項,選項,ui,option (same),選項,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+參數,參數,dev,parameter (same),參數,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+默認,預設,ui,default,默認,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+激活,啟用,ui,activate,啟用,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+禁用,停用,ui,disable,禁用,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+啟動,啟動,ui,start (same),啟動,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+終止,終止,ui,terminate (same),終止,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+取消,取消,ui,cancel (same),取消,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+確定,確定,ui,confirm (same),確定,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+提交,提交,ui,submit (same),提交,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+上傳,上傳,ui,upload (same),上傳,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+下載,下載,ui,download (same),下載,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+導入,匯入,ui,import,導入,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+導出,匯出,ui,export,導出,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+複製,複製,ui,copy (same),複製,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+粘貼,貼上,ui,paste,黏貼,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+剪切,剪下,ui,cut,剪切,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+撤銷,復原,ui,undo,撤銷,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+重做,重做,ui,redo (same),重做,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+刷新,重新整理,ui,refresh,刷新,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+加載,載入,ui,load,加載,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+卸載,卸載,ui,unload (same),卸載,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+安裝,安裝,ui,install (same),安裝,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+卸載,解除安裝,ui,uninstall,卸載,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+更新,更新,ui,update (same),更新,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+升級,升級,ui,upgrade (same),升級,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+回滾,還原,dev,rollback,回滾,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+備份,備份,ui,backup (same),備份,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+恢復,還原,ui,restore,恢復,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+日誌,日誌,dev,log (same),日誌,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+錯誤,錯誤,dev,error (same),錯誤,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+警告,警告,dev,warning (same),警告,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+異常,例外,dev,exception,異常,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+崩潰,當機,dev,crash,崩潰,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+內核,核心,dev,kernel,內核,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+驅動,驅動程式,dev,driver,驅動,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+協議,協定,dev,protocol,協議,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+端口,連接埠,dev,port,埠,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+帶寬,頻寬,network,bandwidth,頻寬,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+延遲,延遲,network,latency (same),延遲,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+吞吐量,吞吐量,network,throughput (same),吞吐量,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+響應,回應,dev,response,響應,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,,站內風格
+請求,請求,dev,request (same),請求,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+會話,工作階段,dev,session,會話,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+令牌,權杖,dev,token,令牌,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+加密,加密,security,encryption (same),加密,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+解密,解密,security,decryption (same),解密,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+認證,驗證,security,authentication,認證,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+授權,授權,security,authorization (same),授權,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+權限,權限,security,permission (same),權限,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+賬戶,帳戶,ui,account,帳戶,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+賬號,帳號,ui,account number,帳號,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+用戶,使用者,ui,user,用戶,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+密碼,密碼,ui,password (same),密碼,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+登錄,登入,ui,login,登錄,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://translate.wordpress.org/locale/zh-tw/default/glossary/,官方文件
+登出,登出,ui,logout (same),登出,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
+註冊,註冊,ui,register (same),註冊,2026-11-15 api.zhconvert.org converter=Taiwan build=dict-a7a87249-r1135,https://docs.zhconvert.org/,實測
