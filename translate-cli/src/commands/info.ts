@@ -22,7 +22,7 @@ export async function infoCommand(): Promise<void> {
   const { detected } = detectAIType();
 
   console.log(chalk.bold('功能特色：'));
-  console.log(`  ${chalk.green('●')} 2,300+ 詞彙（WordPress 台灣社群官方詞彙表）`);
+  console.log(`  ${chalk.green('●')} 2,600+ 詞彙（WordPress 台灣社群官方詞彙表）`);
   console.log(`  ${chalk.green('●')} 14 種 AI 平台支援`);
   console.log(`  ${chalk.green('●')} BM25 智能搜尋引擎`);
   console.log(`  ${chalk.green('●')} 自動翻譯工具`);

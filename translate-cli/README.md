@@ -24,7 +24,7 @@
 
 | 功能 | 說明 |
 |------|------|
-| **2,300+ 專業詞彙** | 來自 WordPress 台灣社群官方詞彙表，持續更新 |
+| **2,600+ 專業詞彙** | 來自 WordPress 台灣社群官方詞彙表，持續更新 |
 | **14 種 AI 平台** | 支援 Claude Code、Cursor、Devin Desktop（原 Windsurf）、Copilot 等主流 AI 助手 |
 | **BM25 智能搜尋** | 高效能詞彙搜尋引擎，支援模糊匹配 |
 | **自動翻譯工具** | 支援純文字和 PO/POT 檔案批次翻譯 |
@@ -57,7 +57,7 @@ taiwan-translate-skill/
 │   │   ├── CLAUDE.md         # Claude 專用指引
 │   │   ├── EXAMPLES.md       # 翻譯範例
 │   │   ├── data/
-│   │   │   └── glossary.csv  # 詞彙表 (2,300+ 詞彙)
+│   │   │   └── glossary.csv  # 詞彙表 (2,600+ 詞彙)
 │   │   ├── scripts/
 │   │   │   ├── search.py     # BM25 搜尋引擎
 │   │   │   ├── lookup.py     # 詞彙查詢（不代換整句）
@@ -341,7 +341,7 @@ python scripts/po.py extract  path/to/file.pot --format json
 
 - **來源**: [WordPress 台灣漢文字彙表](https://translate.wordpress.org/locale/zh-tw/default/glossary/)
 - **GitHub**: [WordPress-Taiwan/WordPress-zh_TW-Glossary](https://github.com/WordPress-Taiwan/WordPress-zh_TW-Glossary)
-- **詞彙數量**: 2,300+
+- **詞彙數量**: 2,600+
 - **更新頻率**: 隨 WordPress 版本更新
 
 ### 詞彙涵蓋範圍

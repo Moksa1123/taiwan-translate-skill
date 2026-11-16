@@ -154,7 +154,7 @@ export async function initCommand(options: InitOptions): Promise<void> {
       console.log();
 
       console.log(chalk.bold('  功能:'));
-      console.log(chalk.dim('    - 詞彙搜尋（2,300+ 詞彙）'));
+      console.log(chalk.dim('    - 詞彙搜尋（2,600+ 詞彙）'));
       console.log(chalk.dim('    - 文字翻譯'));
       console.log(chalk.dim('    - PO/POT 檔案翻譯'));
       console.log();
