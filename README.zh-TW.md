@@ -73,8 +73,8 @@ Claude plugin（Claude Code；上架 Claude 目錄後也可從目錄加入）：
 npx（Claude Code 和下表其他 AI 工具）：
 
 ```bash
-npx taiwan-translate-skill@1.3.0 init                 # 互動式選平台
-npx taiwan-translate-skill@1.3.0 init --ai claude --global
+npx taiwan-translate-skill@1.3.1 init                 # 互動式選平台
+npx taiwan-translate-skill@1.3.1 init --ai claude --global
 ```
 
 手動複製：

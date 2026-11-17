@@ -1,7 +1,7 @@
 {
   "name": "taiwan-translate",
   "displayName": "Taiwan Translate (zh-TW)",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Translate WordPress plugins, themes and software UI into Taiwan Traditional Chinese with the WordPress Taiwan community glossary: term lookup with sources, China-to-Taiwan term pairs, and a .po / .pot validator. Unofficial: not made by or affiliated with the WordPress Foundation or the WordPress Taiwan translation team.",
   "author": {
     "name": "Moksa",

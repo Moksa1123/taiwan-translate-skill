@@ -122,10 +122,10 @@ Anything not in this table: run `search.py`. More pairs with their evidence:
 ## The installer: `tw-translate`
 
 ```bash
-npx taiwan-translate-skill@1.3.0 init                     # interactive
-npx taiwan-translate-skill@1.3.0 init --ai cursor         # one platform
-npx taiwan-translate-skill@1.3.0 init --ai all            # every platform
-npx taiwan-translate-skill@1.3.0 init --ai claude --global
+npx taiwan-translate-skill@1.3.1 init                     # interactive
+npx taiwan-translate-skill@1.3.1 init --ai cursor         # one platform
+npx taiwan-translate-skill@1.3.1 init --ai all            # every platform
+npx taiwan-translate-skill@1.3.1 init --ai claude --global
 npm install -g taiwan-translate-skill                     # then: tw-translate <command>
 ```
 
