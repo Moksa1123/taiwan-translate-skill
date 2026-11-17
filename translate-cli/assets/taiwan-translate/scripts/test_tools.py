@@ -173,6 +173,14 @@ class TestSkillMd(unittest.TestCase):
         tmp.write_text(self.text + "\n共 42 個\n", encoding="utf-8")
         problems, _ = check_numbers.check(tmp)
         self.assertTrue(any("42" in p for p in problems), problems)
+        readme = check_numbers.REPO / "README.md"
+        if readme.exists() and (check_numbers.CLI / "src").exists():  # npm 安裝版沒有 README，跳過
+            tmp = Path(tempfile.mkdtemp()) / "README.md"
+            text = readme.read_text(encoding="utf-8")
+            tmp.write_text(text.replace(f"{check_numbers.stats()['terms']} term pairs", "999 term pairs", 1),
+                           encoding="utf-8")
+            problems, _ = check_numbers.check(tmp, rules=check_numbers.README_RULES, allow_unused=True)
+            self.assertTrue(any("terms" in p for p in problems), problems)
 
     def test_headings(self):
         heads = re.findall(r"^## (.+)$", self.text, re.M)

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "taiwan-translate-skill",
+  "description": "Taiwan Traditional Chinese translation with the WordPress Taiwan glossary. Unofficial.",
+  "owner": {
+    "name": "Moksa",
+    "url": "https://moksaweb.com"
+  },
+  "plugins": [
+    {
+      "name": "taiwan-translate",
+      "description": "Translate WordPress plugins, themes and software UI into Taiwan Traditional Chinese with the WordPress Taiwan community glossary, China-to-Taiwan term pairs and a .po / .pot validator. Unofficial: not made by or affiliated with the WordPress Foundation.",
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/Moksa1123/taiwan-translate-skill"
+    }
+  ]
+}

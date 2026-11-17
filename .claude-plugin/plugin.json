@@ -1,0 +1,30 @@
+{
+  "name": "taiwan-translate",
+  "displayName": "Taiwan Translate (zh-TW)",
+  "version": "1.3.0",
+  "description": "Translate WordPress plugins, themes and software UI into Taiwan Traditional Chinese with the WordPress Taiwan community glossary: term lookup with sources, China-to-Taiwan term pairs, and a .po / .pot validator. Unofficial: not made by or affiliated with the WordPress Foundation or the WordPress Taiwan translation team.",
+  "author": {
+    "name": "Moksa",
+    "url": "https://moksaweb.com"
+  },
+  "homepage": "https://github.com/Moksa1123/taiwan-translate-skill#readme",
+  "repository": "https://github.com/Moksa1123/taiwan-translate-skill",
+  "license": "MIT",
+  "keywords": [
+    "translation",
+    "traditional-chinese",
+    "zh-tw",
+    "taiwan",
+    "wordpress",
+    "glossary",
+    "po",
+    "localization"
+  ],
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://github.com/Moksa1123/taiwan-translate-skill#readme",
+  "supportUrl": "https://github.com/Moksa1123/taiwan-translate-skill/issues",
+  "privacyPolicyUrl": "https://github.com/Moksa1123/taiwan-translate-skill#what-it-runs-and-connects-to",
+  "skills": [
+    "./translate-cli/assets/taiwan-translate"
+  ]
+}

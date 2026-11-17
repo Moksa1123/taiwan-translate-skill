@@ -8,6 +8,7 @@ esbuild.build({
   target: 'node18',
   outfile: 'dist/index.js',
   format: 'cjs',
+  define: { __VERSION__: JSON.stringify(require('../package.json').version) },
   external: ['chalk', 'commander', 'ora', 'prompts'],
   banner: {
     js: '#!/usr/bin/env node'

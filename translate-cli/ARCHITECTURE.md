@@ -34,7 +34,7 @@ translate-cli/
 │   │   ├── EXAMPLES.md       # 範例集
 │   │   ├── README.md         # 技能包說明
 │   │   ├── data/             # 資料檔案
-│   │   │   └── glossary.csv  # 詞彙表（2,300+ 詞彙）
+│   │   │   └── glossary.csv  # 詞彙表（2,600+ 詞彙）
 │   │   ├── scripts/          # Python 腳本
 │   │   │   ├── search.py     # BM25 搜尋引擎
 │   │   │   ├── lookup.py     # 詞彙查詢（不代換整句）

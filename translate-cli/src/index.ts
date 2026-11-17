@@ -10,7 +10,7 @@ const program = new Command();
 program
   .name('tw-translate')
   .description('🇹🇼 台灣正體中文翻譯技能包安裝工具')
-  .version('1.2.0');
+  .version(__VERSION__);
 
 program
   .command('init')

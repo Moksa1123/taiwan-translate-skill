@@ -2,7 +2,7 @@ date,question,why_not_found,asked_by,status
 2026-11-15,全形標點、中英／數字間半形空格、首字大小寫等翻譯規則有沒有 WordPress 台灣社群官方風格指南條文可引,Polyglots 手冊只找到各語系詞彙表與風格指南的入口頁，沒找到 zh-tw 風格指南的條文；目前這些規則標「站內風格」,skill 總機（SOP 第 5 項）,open
 2026-11-15,taiwan-terms.csv 有 29 列「站內風格」（例：進程→程序、類→類別、響應→回應），要不要找其他官方出處（如國家教育研究院樂詞網）,繁化姬台灣化轉換器實測不會這樣轉，WP 台灣詞彙表也沒有對應英文詞，所以只能標站內風格,tools/measure_fanhuaji.py,open
 2026-11-15,glossary.csv 有 61 列只在 2024-03-22 GitHub 快照、現行 GlotPress 詞彙表已沒有（例：.htaccess、credentials、各國語言變體名稱），是社群刻意刪掉還是漏掉,GlotPress 匯出沒有刪除紀錄；先保留並以 retrieved_on=2024-03-22 標示，搜尋時以現行列為準,tools/fetch_glossary.py,open
-2026-11-15,npm 套件的平台樣板（assets/templates/platforms/*.json、templates/base）、translate-cli/README.md、src/commands/info.ts 仍寫「2,300+ 詞彙」,這些是 npm 使用者拿到的產出與 CLI 輸出，改了等於改對外介面，要使用者決定；skill 本體的 SKILL.md 已改成指令產生的數字,tw-translate（6-1 補齊時）,open
+2026-11-15,npm 套件的平台樣板（assets/templates/platforms/*.json、templates/base）、translate-cli/README.md、src/commands/info.ts 仍寫「2,300+ 詞彙」,這些是 npm 使用者拿到的產出與 CLI 輸出，改了等於改對外介面，要使用者決定；skill 本體的 SKILL.md 已改成指令產生的數字,tw-translate（6-1 補齊時）,done（使用者 2026-11-16 同意；info.ts、init.ts、README 已改 2,600+，平台樣板 2026-11-18 改；README 數字由 check_numbers.py 核對）
 2026-11-15,安裝版精簡 SKILL.md（約 4KB，使用者刻意精簡）要不要也補上「先查再答、查不到記待補」鐵則與固定段落標題,使用者沒有作答；總機指示先維持原樣不動,skill 總機,等使用者
 2026-11-15,安裝版獨有的 data/domains/lock.csv（約 330 筆 orca 翻譯禁用詞，沒有腳本讀）要收進 repo、接進搜尋、移去 orca 翻譯那邊，還是保留,使用者沒有作答；總機指示先保留不動,skill 總機,等使用者
 2026-11-15,「dark pattern」（誘導使用者的介面設計）WP 台灣詞彙表的標準譯法,2026-11-15 GlotPress 匯出查無此詞；search.py 只命中 dark mode、pattern,evals（dark-pattern-absent 題，有 skill 的作答者回報）,open

@@ -1,486 +1,202 @@
-<div align="center">
+<h1 align="center">Taiwan Translate Skill</h1>
 
-# Taiwan Translate Skill
+<h3 align="center">台灣正體中文翻譯技能包</h3>
 
-**台灣正體中文翻譯技能包**
+<p align="center">
+  <strong>WordPress zh-TW glossary · China-to-Taiwan term check · .po / .pot validator</strong>
+</p>
 
-為 AI 程式助手提供專業的台灣在地化翻譯能力
+<p align="center">
+  <img src="https://img.shields.io/badge/node-%3E%3D18-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/python-3-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/format-Agent%20Skill-blue?style=flat-square" alt="Agent Skill">
+</p>
 
-[![npm version](https://img.shields.io/npm/v/taiwan-translate-skill.svg?style=flat-square&color=cb3837)](https://www.npmjs.com/package/taiwan-translate-skill)
-[![npm downloads](https://img.shields.io/npm/dm/taiwan-translate-skill.svg?style=flat-square&color=blue)](https://www.npmjs.com/package/taiwan-translate-skill)
-[![node](https://img.shields.io/node/v/taiwan-translate-skill.svg?style=flat-square&color=339933)](https://nodejs.org)
-[![platforms](https://img.shields.io/badge/platforms-14-orange?style=flat-square)](https://github.com/Moksa1123/taiwan-translate-skill#支援的-ai-平台)
-[![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
+<p align="center">
+  <img src="https://img.shields.io/badge/glossary-2627-success?style=flat-square" alt="Glossary rows">
+  <img src="https://img.shields.io/badge/Taiwan%20terms-135-success?style=flat-square" alt="Taiwan term pairs">
+  <img src="https://img.shields.io/badge/AI%20platforms-14-orange?style=flat-square" alt="AI platforms">
+  <a href="https://www.npmjs.com/package/taiwan-translate-skill"><img src="https://img.shields.io/npm/v/taiwan-translate-skill?style=flat-square&color=cb3837&logo=npm&logoColor=white&label=npm" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/taiwan-translate-skill"><img src="https://img.shields.io/npm/dm/taiwan-translate-skill?style=flat-square&color=cb3837&logo=npm&logoColor=white" alt="npm downloads"></a>
+  <a href="https://github.com/Moksa1123/taiwan-translate-skill"><img src="https://img.shields.io/github/stars/Moksa1123/taiwan-translate-skill?style=flat-square&logo=github&logoColor=white&color=181717" alt="GitHub stars"></a>
+</p>
 
-[![PayPal](https://img.shields.io/badge/PayPal-Donate-blue.svg?style=flat-square&logo=paypal)](https://paypal.me/cccsubcom)
+<p align="center">
+  <a href="https://github.com/Moksa1123/taiwan-translate-skill/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"></a>
+  <a href="https://paypal.me/cccsubcom"><img src="https://img.shields.io/badge/PayPal-Donate-00457C?style=flat-square&logo=paypal&logoColor=white" alt="PayPal"></a>
+</p>
 
-[安裝](#快速安裝) · [使用方式](#使用方式) · [平台支援](#支援的-ai-平台) · [詞彙表](#詞彙表)
+<p align="center"><strong>English</strong> · <a href="https://github.com/Moksa1123/taiwan-translate-skill/blob/main/README.zh-TW.md">正體中文</a></p>
 
-</div>
+> This is an unofficial community project. It is not made by, endorsed by, or affiliated with the WordPress Foundation, the WordPress Taiwan translation team or Fanhuaji. It reads their public glossary and converter output; neither is bundled as software.
 
----
+## What it does
 
-## 功能特色
+Gives an AI assistant the WordPress Taiwan community's official zh-TW glossary, so plugin, theme and software UI strings come out in Taiwan usage instead of China usage or machine guesses.
 
-| 功能 | 說明 |
-|------|------|
-| **2,600+ 專業詞彙** | 來自 WordPress 台灣社群官方詞彙表，持續更新 |
-| **14 種 AI 平台** | 支援 Claude Code、Cursor、Devin Desktop（原 Windsurf）、Copilot 等主流 AI 助手 |
-| **BM25 智能搜尋** | 高效能詞彙搜尋引擎，支援模糊匹配 |
-| **自動翻譯工具** | 支援純文字和 PO/POT 檔案批次翻譯 |
-| **台灣在地化** | 使用台灣正體中文用語，非中國簡轉繁 |
-| **零依賴搜尋** | Python 腳本無需安裝額外套件 |
+| Area | What you get |
+|---|---|
+| Glossary | 2,627 glossary rows from the WordPress Taiwan GlotPress glossary: 2,566 current, 61 kept from the 2024-03-22 GitHub snapshot; every row has its source URL, retrieval date and trust level |
+| China → Taiwan terms | 135 term pairs (設置 → 設定, 插件 → 外掛): 76 measured against the Fanhuaji Taiwan converter, 30 from official docs, 29 house style |
+| Lookup | `search.py` finds a term in English or Chinese; `lookup.py` lists every glossary hit in a sentence. Neither rewrites the sentence: the model translates, the glossary keeps terms consistent |
+| .po / .pot | `po.py extract` pulls untranslated entries (plural, msgctxt, multi-line); `po.py validate` checks placeholders, empty strings, punctuation, China terms, and exits 1 on any error |
+| Installer | `tw-translate init` installs the skill into 14 AI tools (Claude Code, Cursor, Codex, Gemini CLI, Copilot and more) |
 
----
+The model looks a term up before answering. When the glossary has no entry it says so and logs the question in `data/pending.csv` instead of inventing a "standard" translation.
 
-## 專案結構
+## When to use
+
+| Use it for | Use something else for |
+|---|---|
+| English → Taiwan Traditional Chinese for WordPress plugins, themes and software UI | Writing Chinese WordPress articles for SEO → `rankmath-seo-wp` |
+| Translating or checking `.po` / `.pot` files, fixing Loco Translate warnings | Converting a whole Simplified Chinese text with no software terms → the Fanhuaji site |
+| "How does the WordPress Taiwan community translate X?" | Legal or medical documents: the glossary does not cover them |
+| Replacing China usage (設置, 默認, 插件) with Taiwan usage | |
+
+## Install
+
+| Need | For |
+|---|---|
+| Python 3 (standard library only) | The search, lookup and `.po` tools |
+| Node.js 18+ | The `tw-translate` installer (npx) only |
+| Windows, macOS or Linux | Everything |
+
+### Step 1: Pick an install method
+
+Claude plugin (Claude Code; the Claude directory once listed):
 
 ```
-taiwan-translate-skill/
-├── src/                      # TypeScript 原始碼
-│   ├── index.ts              # CLI 入口
-│   ├── commands/             # CLI 命令
-│   │   ├── init.ts           # 安裝命令
-│   │   ├── list.ts           # 列出平台
-│   │   ├── info.ts           # 版本資訊
-│   │   ├── update.ts         # 更新命令
-│   │   └── versions.ts       # 檢查版本
-│   ├── types/                # TypeScript 類型定義
-│   └── utils/                # 工具函式
-│       ├── detect.ts         # 平台偵測
-│       ├── logger.ts         # 日誌輸出
-│       ├── progress.ts       # 進度顯示
-│       └── template.ts       # 範本處理
-├── assets/
-│   ├── taiwan-translate/     # 技能包內容
-│   │   ├── SKILL.md          # 主技能檔案
-│   │   ├── CLAUDE.md         # Claude 專用指引
-│   │   ├── EXAMPLES.md       # 翻譯範例
-│   │   ├── data/
-│   │   │   └── glossary.csv  # 詞彙表 (2,600+ 詞彙)
-│   │   ├── scripts/
-│   │   │   ├── search.py     # BM25 搜尋引擎
-│   │   │   ├── lookup.py     # 詞彙查詢（不代換整句）
-│   │   │   └── po.py         # PO 抽取與把關（extract/validate）
-│   │   └── references/
-│   │       └── STYLE_GUIDE.md
-│   └── templates/
-│       ├── base/             # 基礎範本
-│       └── platforms/        # 14 種平台設定
-├── dist/                     # 編譯輸出
-├── package.json
-└── tsconfig.json
+/plugin marketplace add Moksa1123/taiwan-translate-skill
+/plugin install taiwan-translate@taiwan-translate-skill
 ```
 
----
-
-## 快速安裝
-
-### 自動安裝（推薦）
+npx (Claude Code and the other AI tools below):
 
 ```bash
-npx taiwan-translate-skill init
+npx taiwan-translate-skill@1.3.0 init                 # pick a platform interactively
+npx taiwan-translate-skill@1.3.0 init --ai claude --global
 ```
 
-互動式安裝程序會自動偵測你的 AI 助手並引導安裝。
-
-### 指定平台安裝
+Manual copy:
 
 ```bash
-# 安裝到特定平台
-npx taiwan-translate-skill init --ai claude
-npx taiwan-translate-skill init --ai cursor
-npx taiwan-translate-skill init --ai windsurf
-
-# 安裝到所有支援的平台
-npx taiwan-translate-skill init --ai all
-
-# 全域安裝（所有專案都能用）
-npx taiwan-translate-skill init --ai claude --global
-```
-
-### 全域安裝 CLI
-
-```bash
-npm install -g taiwan-translate-skill
-
-# 然後使用
-tw-translate init
-tw-translate list
-tw-translate info
-```
-
----
-
-## 使用方式
-
-安裝完成後，在 AI 助手中使用斜線命令：
-
-### 基本指令
-
-| 指令 | 說明 | 範例 |
-|------|------|------|
-| `/tw-translate <詞彙>` | 搜尋詞彙翻譯 | `/tw-translate plugin` |
-| `/tw-translate "<文字>"` | 翻譯整段文字（模型依詞彙＋規則翻譯） | `/tw-translate "Select a theme"` |
-| `/tw-translate <檔案>.po` | 抽取未翻譯 → 模型翻譯 → 把關 | `/tw-translate zh_TW.pot` |
-
-> 理念：詞彙表僅供參考，**不做子字串自動代換**。整句翻譯由模型完成，再用 `po.py validate` 把關。
-
-### 搜尋詞彙
-
-```
-/tw-translate plugin
-/tw-translate dashboard
-/tw-translate settings
-```
-
-**輸出範例：**
-```
-搜尋結果 (3 筆)
-
-1. plugin -> 外掛
-   原文: plugin
-   翻譯: 外掛
-
-2. plugins -> 外掛
-   原文: plugins
-   翻譯: 外掛
-
-3. plugin editor -> 外掛編輯器
-   原文: plugin editor
-   翻譯: 外掛編輯器
-```
-
-### 翻譯文字
-
-```
-/tw-translate "Please select a theme from the dashboard"
-```
-
-詞彙查詢會列出命中的詞彙供參考，整句由模型依風格指南翻譯：
-```
-原文: Please select a theme from the dashboard
-命中詞彙: theme→佈景主題、dashboard→控制台、select→選取
-模型翻譯: 請從控制台選取佈景主題
-```
-
-### 翻譯 PO/POT 檔案
-
-標準流程：**抽取未翻譯 → 模型翻譯 → 把關**：
-```
-/tw-translate path/to/your-plugin-zh_TW.pot
-```
-
----
-
-## Python 腳本（進階）
-
-技能包包含 Python 腳本，可在終端機直接使用：
-
-### 搜尋詞彙
-
-```bash
-# 搜尋英文詞彙
-python scripts/search.py plugin
-python scripts/search.py "post type"
-
-# 搜尋中文詞彙
-python scripts/search.py 外掛 --domain zh
-python scripts/search.py 佈景主題 --domain zh
-
-# 限制結果數量
-python scripts/search.py plugin --limit 5
-```
-
-### 詞彙查詢（供翻譯參考，不代換整句）
-
-```bash
-python scripts/lookup.py "Please select a theme"
-python scripts/lookup.py --file input.txt
-python scripts/lookup.py "Click Settings" --format json
-```
-
-### PO 抽取與把關
-
-```bash
-# 抽出未翻譯項目（交給模型翻譯）
-python scripts/po.py extract  path/to/file.pot
-
-# 翻譯把關（佔位符/首字大小寫/中國用語/中英空格…，只報告不改）
-python scripts/po.py validate path/to/file.po
-
-# JSON 輸出
-python scripts/po.py extract  path/to/file.pot --format json
-```
-
----
-
-## 支援的 AI 平台
-
-<table>
-<tr>
-<th>平台</th>
-<th>資料夾</th>
-<th>全域安裝</th>
-<th>說明</th>
-</tr>
-<tr>
-<td><b>Claude Code</b></td>
-<td><code>.claude</code></td>
-<td align="center">V</td>
-<td>Anthropic 官方 CLI</td>
-</tr>
-<tr>
-<td><b>Cursor</b></td>
-<td><code>.cursor</code></td>
-<td align="center">V</td>
-<td>AI-first 程式編輯器</td>
-</tr>
-<tr>
-<td><b>Devin Desktop</b>（原 Windsurf）</td>
-<td><code>.devin</code>（舊版 <code>.windsurf</code>）</td>
-<td align="center">-</td>
-<td>Cognition IDE（2026/6 由 Windsurf 改名）</td>
-</tr>
-<tr>
-<td><b>Antigravity</b></td>
-<td><code>.agent</code></td>
-<td align="center">V</td>
-<td>AI Agent 平台</td>
-</tr>
-<tr>
-<td><b>GitHub Copilot</b></td>
-<td><code>.github</code></td>
-<td align="center">-</td>
-<td>GitHub AI 助手（Agent Skills：<code>.github/skills/</code>）</td>
-</tr>
-<tr>
-<td><b>Kiro</b></td>
-<td><code>.kiro</code></td>
-<td align="center">-</td>
-<td>AWS AI IDE</td>
-</tr>
-<tr>
-<td><b>Codex</b></td>
-<td><code>.codex</code></td>
-<td align="center">-</td>
-<td>OpenAI Codex CLI</td>
-</tr>
-<tr>
-<td><b>Qoder</b></td>
-<td><code>.qoder</code></td>
-<td align="center">-</td>
-<td>Qodo AI 助手</td>
-</tr>
-<tr>
-<td><b>Roo Code</b></td>
-<td><code>.roo</code></td>
-<td align="center">-</td>
-<td>Roo-Cline AI 助手</td>
-</tr>
-<tr>
-<td><b>Gemini</b></td>
-<td><code>.gemini</code></td>
-<td align="center">-</td>
-<td>Google Gemini CLI</td>
-</tr>
-<tr>
-<td><b>Trae</b></td>
-<td><code>.trae</code></td>
-<td align="center">-</td>
-<td>ByteDance AI IDE</td>
-</tr>
-<tr>
-<td><b>OpenCode</b></td>
-<td><code>.opencode</code></td>
-<td align="center">-</td>
-<td>開源 AI 編輯器</td>
-</tr>
-<tr>
-<td><b>Continue</b></td>
-<td><code>.continue</code></td>
-<td align="center">-</td>
-<td>開源 AI 程式助手</td>
-</tr>
-<tr>
-<td><b>CodeBuddy</b></td>
-<td><code>.codebuddy</code></td>
-<td align="center">-</td>
-<td>Tencent AI 助手</td>
-</tr>
-</table>
-
----
-
-## 台灣 vs 中國用語對照
-
-本技能包使用台灣正體中文用語，與中國簡體轉繁體不同：
-
-| 英文 | 台灣正體 | 中國用語 |
-|------|----------|----------|
-| Plugin | 外掛 | 插件 |
-| Theme | 佈景主題 | 主題 |
-| Widget | 小工具 | 部件/小部件 |
-| Dashboard | 控制台 | 儀表板 |
-| Settings | 設定 | 設置 |
-| Category | 分類 | 類別/分類 |
-| Tag | 標籤 | 標籤 |
-| Sidebar | 側邊欄 | 邊欄 |
-| Shortcode | 短代碼 | 簡碼 |
-| Permalink | 永久連結 | 固定連結 |
-| Excerpt | 摘要 | 摘錄 |
-| Featured Image | 特色圖片 | 精選圖片 |
-| Custom Field | 自訂欄位 | 自定義字段 |
-| Post Format | 文章格式 | 日誌形式 |
-
----
-
-## 詞彙表
-
-詞彙表來自 WordPress 台灣社群官方維護的詞彙表：
-
-- **來源**: [WordPress 台灣漢文字彙表](https://translate.wordpress.org/locale/zh-tw/default/glossary/)
-- **GitHub**: [WordPress-Taiwan/WordPress-zh_TW-Glossary](https://github.com/WordPress-Taiwan/WordPress-zh_TW-Glossary)
-- **詞彙數量**: 2,600+
-- **更新頻率**: 隨 WordPress 版本更新
-
-### 詞彙涵蓋範圍
-
-- WordPress 核心介面
-- 常見外掛設定
-- 佈景主題選項
-- 區塊編輯器
-- REST API 相關
-- 電商相關術語
-
----
-
-## CLI 命令
-
-```bash
-# 顯示所有命令
-tw-translate --help
-
-# 安裝技能包（互動式）
-tw-translate init
-
-# 列出支援的平台
-tw-translate list
-
-# 顯示版本資訊
-tw-translate info
-
-# 檢查可用版本
-tw-translate versions
-
-# 更新已安裝的技能包
-tw-translate update
-```
-
----
-
-## 常見問題
-
-<details>
-<summary><b>安裝後找不到 /tw-translate 命令？</b></summary>
-
-請重新啟動你的 AI 助手（如 Claude Code、Cursor）。技能會在重啟後自動載入。
-
-</details>
-
-<details>
-<summary><b>Python 腳本執行出現亂碼？</b></summary>
-
-Windows 用戶請確保終端機使用 UTF-8 編碼：
-
-```bash
-chcp 65001
-```
-
-或在 PowerShell 中：
-
-```powershell
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-```
-
-</details>
-
-<details>
-<summary><b>如何更新詞彙表？</b></summary>
-
-執行更新命令：
-
-```bash
-tw-translate update
-```
-
-或重新安裝：
-
-```bash
-npx taiwan-translate-skill@latest init --force
-```
-
-</details>
-
-<details>
-<summary><b>可以自訂詞彙嗎？</b></summary>
-
-可以！編輯 `data/glossary.csv` 檔案，新增你的自訂詞彙：
-
-```csv
-en,zh-tw,pos,description
-your-term,你的翻譯,noun,備註說明
-```
-
-</details>
-
-<details>
-<summary><b>支援哪些 PO 檔案格式？</b></summary>
-
-支援標準的 GNU gettext 格式：
-- `.po` - 翻譯檔案
-- `.pot` - 翻譯模板
-
-</details>
-
----
-
-## 貢獻
-
-歡迎提交 Issue 和 Pull Request！
-
-- [GitHub Issues](https://github.com/Moksa1123/taiwan-translate-skill/issues)
-- [Pull Requests](https://github.com/Moksa1123/taiwan-translate-skill/pulls)
-
-### 開發
-
-```bash
-# Clone 專案
 git clone https://github.com/Moksa1123/taiwan-translate-skill.git
-cd taiwan-translate-skill/translate-cli
-
-# 安裝依賴
-npm install
-
-# 編譯
-npm run build
-
-# 測試
-npm run dev -- init
+cp -r taiwan-translate-skill/translate-cli/assets/taiwan-translate ~/.claude/skills/tw-translate
 ```
 
----
+| Platform | `--ai` key | Folder | Global install |
+|---|---|---|---|
+| Claude Code | `claude` | `.claude` | yes |
+| Cursor | `cursor` | `.cursor` | yes |
+| Devin Desktop (formerly Windsurf) | `windsurf` | `.devin` (old `.windsurf` still detected) | no |
+| Antigravity / generic agent | `antigravity` | `.agent` | yes |
+| GitHub Copilot | `copilot` | `.github/skills` | no |
+| Kiro | `kiro` | `.kiro` | no |
+| OpenAI Codex CLI | `codex` | `.codex` | no |
+| Qoder | `qoder` | `.qoder` | no |
+| Roo Code | `roocode` | `.roo` | no |
+| Gemini CLI | `gemini` | `.gemini` | no |
+| Trae | `trae` | `.trae` | no |
+| OpenCode | `opencode` | `.opencode` | no |
+| Continue | `continue` | `.continue` | no |
+| CodeBuddy | `codebuddy` | `.codebuddy` | no |
+| All of the above | `all` | | |
 
-## 授權
+## Quick start
 
-MIT License
+### Step 2: Ask the assistant
 
----
+| You say | What happens |
+|---|---|
+| "Translate this plugin's .pot into zh_TW." | Extracts untranslated entries, looks up each term, translates, then validates until 0 errors |
+| "How does WordPress Taiwan translate 'sidebar'?" | Looks it up and quotes the row: 資訊欄 (WP glossary) |
+| "Is 設置 China usage? What should it be?" | Looks it up in the term pairs: 設定, with the evidence for that row |
 
-<div align="center">
+### Step 3: Run the tools yourself
 
-**Made with love for Taiwan WordPress Community**
+```bash
+cd translate-cli/assets/taiwan-translate
+python scripts/lookup.py "Please select a theme from the dashboard"
+```
 
-[WordPress 台灣正體中文](https://tw.wordpress.org/) | [台灣社群詞彙表](https://github.com/WordPress-Taiwan/WordPress-zh_TW-Glossary)
+```
+命中詞彙（僅供翻譯參考，整句翻譯請由模型完成）：
+dashboard              控制台            noun     WP
+select                 選取             verb     WP
+theme                  佈景主題           noun     WP
+```
 
-</div>
+| Command | Does |
+|---|---|
+| `python scripts/search.py "<term>"` | Look a term up (`--domain zh` for Chinese → English, `--source fanhuaji` for China terms) |
+| `python scripts/lookup.py "<sentence>"` | List every glossary hit in a sentence |
+| `python scripts/po.py extract <file>` | List untranslated entries |
+| `python scripts/po.py validate <file>` | Check a translated `.po`; exit 0 means no errors |
+| `tw-translate list` / `info` / `update` | Installer commands |
+
+Every option, sample output and the FAQ: [docs/guide.md](https://github.com/Moksa1123/taiwan-translate-skill/blob/main/docs/guide.md).
+
+## Trigger phrases
+
+English: translate to Traditional Chinese, Taiwan Chinese, zh_TW, translate a WordPress plugin or theme, .po / .pot translation, Loco Translate warning, glossary lookup, China terms to Taiwan terms.
+
+中文：翻譯成繁體中文、台灣用語、正體中文、WP 外掛翻譯、.po 翻譯、Loco 警告、這個詞台灣怎麼說、中國用語改台灣用語。
+
+## What it runs and connects to
+
+Nothing runs on its own: the plugin has no hooks, no MCP servers and no background processes. A tool runs only when Claude follows `SKILL.md` and you approve the command. Translating needs no network access and no API key, and no data is sent to the author or anyone else.
+
+| Tool | Reads | Writes | Connects to |
+|---|---|---|---|
+| `scripts/search.py`, `scripts/lookup.py` | `data/glossary.csv`, `data/taiwan-terms.csv` | Nothing | Nothing |
+| `scripts/po.py extract`, `po.py validate` | The `.po` / `.pot` file you name | Nothing (report only) | Nothing |
+| Claude, when you ask it to translate a file | That `.po` file | Its `msgstr` lines | Nothing |
+| Claude, when a term is not in the glossary | | One row in `data/pending.csv` | Nothing |
+| `scripts/test_tools.py`, `scripts/check_numbers.py` | Files in this repo | Small files in your system temp folder (left there); `check_numbers.py --fix` rewrites wrong numbers in `SKILL.md` and the READMEs | Nothing |
+| `tw-translate init` / `update` | The bundled skill | The AI tool's folder in your project, or your home folder with `--global` | Nothing |
+| `tw-translate versions` | | Nothing | `registry.npmjs.org` (latest version number) |
+| `tools/fetch_glossary.py` (maintainers) | `data/glossary.csv` (keeps snapshot-only rows) | `data/glossary.csv` | `translate.wordpress.org` (glossary CSV export) |
+| `tools/measure_fanhuaji.py` (maintainers) | `data/taiwan-terms.csv` | `data/taiwan-terms.csv` | `api.zhconvert.org` (sends only the term list, never your files) |
+
+Both sources are fixed into the CSV files at release time; nothing is fetched while you translate.
+
+| Source | Order | Size |
+|---|---|---|
+| WordPress Taiwan glossary | first | 2,627 glossary rows |
+| Fanhuaji China → Taiwan pairs | when the glossary has no entry | 135 term pairs |
+| Neither has it | keep the source text, log it in `pending.csv` | |
+
+## How it's verified
+
+| Check | Result | Evidence |
+|---|---|---|
+| Glossary | Current rows exported from GlotPress on 2026-11-15; older rows marked with their 2024-03-22 snapshot date | `doc_url`, `retrieved_on`, `trust` columns in `data/glossary.csv` |
+| China → Taiwan pairs | Each pair sent to the Fanhuaji Taiwan converter on 2026-11-15; the converter's output is stored next to it | `fanhuaji_out`, `measured_on`, `trust` columns in `data/taiwan-terms.csv` |
+| Self-test | 24 offline tests: CSV provenance, search, lookup, `.po` extract and validate, numbers in `SKILL.md` | `python scripts/test_tools.py` |
+| Evals | 14 scored questions (19 questions in all); with the skill 14/14, without it 0/14 | [evals/RESULTS.md](https://github.com/Moksa1123/taiwan-translate-skill/blob/main/translate-cli/assets/taiwan-translate/evals/RESULTS.md) |
+| Numbers in docs | Every number in `SKILL.md`, these READMEs and the guide matches the data | `python scripts/check_numbers.py` |
+
+## Limits
+
+| Limit | Details |
+|---|---|
+| Scope | WordPress and software UI terms; not a general dictionary |
+| Style rules | Punctuation and spacing rules are house style; no official zh-TW style guide text was found to cite |
+| Old rows | Rows only in the 2024 snapshot may have been removed by the community on purpose; current rows win |
+| Encoding on Windows | Use a UTF-8 terminal (`chcp 65001`) or Chinese output may look garbled |
+| Open questions | [data/pending.csv](https://github.com/Moksa1123/taiwan-translate-skill/blob/main/translate-cli/assets/taiwan-translate/data/pending.csv) |
+
+## Repo layout
+
+```
+.claude-plugin/              plugin and marketplace manifests, icon
+translate-cli/               npm package: the tw-translate installer (TypeScript)
+  assets/taiwan-translate/   the skill: SKILL.md, data/, scripts/, references/, evals/
+  assets/templates/          per-platform install templates
+docs/guide.md                the long guide
+README.md, README.zh-TW.md   this file and its Chinese version
+```
+
+## License & author
+
+MIT License. Made by Moksa ([moksaweb.com](https://moksaweb.com)). Glossary data: [WordPress Taiwan GlotPress glossary](https://translate.wordpress.org/locale/zh-tw/default/glossary/). Issues: [GitHub](https://github.com/Moksa1123/taiwan-translate-skill/issues).

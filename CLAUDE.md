@@ -19,7 +19,10 @@ taiwan-translate-skill/
 │   │       └── scripts/        # Python 工具
 │   ├── dist/                   # 編譯輸出
 │   └── package.json
-├── README.md
+├── .claude-plugin/              # plugin.json（skills 指向 translate-cli/assets/taiwan-translate）、marketplace.json、icon
+├── docs/guide.md               # README 移出來的長內容
+├── README.md                   # 英文主檔（官方目錄讀這份）；npm 的 translate-cli/README.md 由 npm run sync-readme 產生
+├── README.zh-TW.md             # 中文對應，段落一一對應
 ├── LICENSE
 ├── CONTRIBUTING.md
 └── CLAUDE.md                   # 此檔案

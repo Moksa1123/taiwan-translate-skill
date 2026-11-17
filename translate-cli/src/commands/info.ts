@@ -1,19 +1,11 @@
 import chalk from 'chalk';
-import * as path from 'path';
-import * as fs from 'fs';
 import { logger } from '../utils/logger.js';
 import { detectAIType, getAITypeDescription } from '../utils/detect.js';
 
 export async function infoCommand(): Promise<void> {
   logger.title('台灣正體中文翻譯技能包');
 
-  // 讀取 package.json 取得版本
-  const packagePath = path.join(__dirname, '..', '..', 'package.json');
-  let version = '1.2.0';
-  try {
-    const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf-8'));
-    version = pkg.version;
-  } catch {}
+  const version = __VERSION__;
 
   console.log(chalk.bold('版本：'), chalk.cyan(version));
   console.log();
