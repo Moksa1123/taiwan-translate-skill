@@ -194,6 +194,7 @@ translate-cli/               npm 套件：tw-translate 安裝工具（TypeScript
   assets/taiwan-translate/   skill 本體：SKILL.md、data/、scripts/、references/、evals/
   assets/templates/          各平台安裝樣板
 docs/guide.md                完整說明
+directory-plugin/            Claude 官方目錄精簡版：只有 JSON 和 Markdown（scripts/build_directory.py 產生）
 README.md、README.zh-TW.md   英文主檔與本檔
 ```
 

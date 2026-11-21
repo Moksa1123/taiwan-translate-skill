@@ -1,0 +1,132 @@
+---
+name: tw-translate
+description: "台灣正體中文翻譯工具（官方目錄精簡版）。使用 WordPress 台灣社群官方詞彙表，翻譯軟體介面、外掛、佈景主題等文字，查詞彙與中國用語對照。精簡版只有參考資料，不含腳本；要用 .po 把關工具等完整功能請裝 npm 套件 taiwan-translate-skill。觸發：翻譯成繁體中文、台灣用語、正體中文、WP 外掛翻譯、.po 翻譯、Loco 警告、這個詞台灣怎麼說、中國用語改台灣用語。Use for Traditional Chinese (Taiwan, zh_TW) translation of WordPress plugins/themes and software UI, .po/.pot files, glossary lookup."
+---
+
+# 台灣正體中文翻譯技能（官方目錄精簡版）
+
+這是為 Claude 官方目錄做的**精簡版**：詞彙表、用語對照、翻譯規則和範例，全部是 JSON 與 Markdown，不含腳本。
+完整版另有查詞腳本、.po 抽取與把關工具（`po.py validate`）、自我測試，要用完整功能請裝 npm 版：
+`npx taiwan-translate-skill@1.3.1 init`，或見 <https://github.com/Moksa1123/taiwan-translate-skill>。
+
+模型負責翻整句，詞彙表負責用詞一致。**不要用詞彙表做子字串代換整句。**
+
+## 資料出處
+
+| 資料 | 來源 | 筆數 | 日期 | 可信度 |
+|---|---|---|---|---|
+| `data/glossary-*.json` | [WordPress 台灣社群 GlotPress 詞彙表](https://translate.wordpress.org/locale/zh-tw/default/glossary/) 的 CSV 匯出 | 2,627 列（現行 2,566 列＋舊版快照 61 列） | 現行列擷取於 2026-11-15；舊版列來自 GitHub 快照 2024-03-22 | 官方文件 |
+| `data/taiwan-terms.json` | 簡體／中國用語 → 台灣用語對照，每列送進[繁化姬](https://docs.zhconvert.org/)台灣化轉換器實測 | 135 列（實測 76、官方文件 30、站內風格 29） | 2026-11-15 實測 | 每列 `trust` 欄 |
+| `references/TAIWAN_VS_CHINA.md` | 常見中國用語對照，每列標依據 | — | 同上 | 每列「依據」欄 |
+| `references/STYLE_GUIDE.md` | 標點、空格、語氣規則 | — | — | 站內風格（稱文不稱語除外） |
+
+| 資料檔 | 列數 | 內容 |
+|---|---|---|
+| `data/glossary-1.json`、`data/glossary-2.json`、`data/glossary-3.json` | 2627 | WordPress 台灣社群 GlotPress 詞彙表（英文 → 台灣正體） |
+| `data/taiwan-terms.json` | 135 | 中國用語 → 台灣用語對照，附繁化姬實測輸出 |
+| `data/pending.json` | 7 | 查不到、還沒解決的問題 |
+
+- 每個 JSON 檔一列一行：`{"en": "...", "zh-tw": "...", "pos": "...", "description": "...", "doc_url": "...", "retrieved_on": "...", "trust": "..."}`（taiwan-terms 的欄位是 `cn`、`tw`、`category`、`note`、`fanhuaji_out`、`measured_on`、`doc_url`、`trust`）。
+- `retrieved_on` 是 2024-03-22 的列＝現行詞彙表已經沒有，只能當參考；同一英文詞以現行列為準。
+- 「站內風格」＝本 skill 的慣例，不是官方規則，不可對使用者說成「WP 官方規定」。
+
+## 用法
+
+**何時用**：英文或簡體中文 → 台灣正體中文，尤其是 WordPress 外掛／佈景主題、軟體介面字串、.po/.pot 檔；查「某個詞 WP 台灣社群怎麼譯」；把中國用語改成台灣用語。
+
+**何時不用**：
+
+| 需求 | 交給 |
+|---|---|
+| 寫 WordPress 中文文章、SEO 分數 | `rankmath-seo-wp` |
+| 整篇簡轉繁、不涉及軟體用語 | 繁化姬網站（zhconvert.org）直接轉 |
+| 法律、醫療等專業文件 | 詞彙表不涵蓋，照實告訴使用者 |
+
+**唯一入口**：用搜尋工具（Grep）在 `data/` 的 JSON 檔裡找詞。精簡版不執行任何程式，只讀檔。
+
+| 要找 | 怎麼搜 |
+|---|---|
+| 英文詞的 WP 譯法 | 在 `data/glossary-*.json` 搜 `"en": "sidebar"`（不分大小寫）；找片語時搜詞本身，例如 `featured image` |
+| 中文找英文 | 在 `data/glossary-*.json` 搜 `"zh-tw": "外掛"` |
+| 中國用語 | 在 `data/taiwan-terms.json` 搜 `"cn": "設置"`；簡體字先轉成正體字形再搜（设置 → 設置） |
+
+## 路由
+
+> **鐵則：先查再答，不憑記憶。** 每個專有名詞、介面用語都要先在 `data/*.json` 查。
+> 查不到就照實說「詞彙表查不到」，在答案裡標「待補」，並告訴使用者這個問題可以回報到 GitHub issues。**不要拿相似詞或「台灣習慣」推一個譯法當成標準答案。**
+> 使用者要你先給一個譯法時，可以給，但要明講「這是推論，詞彙表沒有」。已知的待補問題在 `data/pending.json`。
+
+| 使用者會怎麼說 | 查哪裡 |
+|---|---|
+| 「X 台灣怎麼翻」「X 的標準譯法」 | `data/glossary-*.json` 的 `en` |
+| 「外掛的英文是什麼」（中文找英文） | `data/glossary-*.json` 的 `zh-tw` |
+| 「這句話翻成繁中」 | 句中每個名詞、動詞都查 `glossary`，再由模型翻 |
+| 「翻這個 .po／.pot」「外掛中文化」 | 逐條 msgid 查詞後翻，照下面的翻譯規則與驗證清單檢查 |
+| 「這是中國用語嗎」「設置／默認要改嗎」 | `data/taiwan-terms.json`、`references/TAIWAN_VS_CHINA.md` |
+| 「Loco 一直警告」「佔位符不見」 | 照「驗證」一節逐條比對 |
+| 「標點／空格要怎麼寫」 | `references/STYLE_GUIDE.md` |
+
+一個英文詞在詞彙表有多個譯法時（例如 spam、sticky、archive），看 `pos` 與 `description` 欄的適用情境選，不要只取第一筆。
+
+## 使用
+
+| 任務 | 步驟 | 完成的證據 |
+|---|---|---|
+| 查一個詞 | 搜 `glossary`；多筆時依 pos／description 選；查不到標待補 | 回答附上命中的那一列（譯法＋來源） |
+| 翻一句或一段介面文字 | 1. 列出句中每個詞的命中列 2. 照命中譯法與翻譯規則翻 3. 照驗證清單檢查 | 每個專有名詞都對得到一列 |
+| 翻 .po/.pot | 1. 找出 `msgstr ""` 的未翻譯項目 2. 每條先查詞再翻，回寫 msgstr，保留佔位符（`%s`、`%d` 與帶編號的寫法）、HTML 標籤與首尾空白 3. 照驗證清單逐條檢查 | 清單每一項都過；建議使用者用完整版 `po.py validate` 再跑一次 |
+| 中國用語改台灣用語 | 搜 `taiwan-terms`；看 `trust` 欄；對照 `references/TAIWAN_VS_CHINA.md` | 每個替換都對得到一列，並說出依據（實測／官方文件／站內風格） |
+
+### 翻譯規則（含可信度）
+
+| 規則 | 例 | 可信度 |
+|---|---|---|
+| 用 WP 詞彙表譯法 | sidebar → 資訊欄、block pattern → 區塊版面配置 | 官方文件 |
+| 語言名稱稱「文」不稱「語」 | English → 英文 | 官方文件（詞彙表語言名稱列的 description 寫「介面中稱文不稱語」） |
+| 品牌、產品名保留英文 | WordPress、Google | 站內風格 |
+| 全形標點：，。「」（） | 「設定已儲存。」 | 站內風格 |
+| 中英文、數字之間加半形空格 | 請使用 WordPress 外掛 | 站內風格 |
+| 原文小寫開頭時，譯文不要以大寫英文起頭 | `an experiment by Automattic` → 由 Automattic 進行的實驗 | 站內風格（避免 Loco「missing the initial lowercase」警告） |
+| 中文不加複數標記 | files → 檔案 | 站內風格 |
+
+### 常用詞速查（全部在詞彙表現行列查得到）
+
+| English | 譯法 | English | 譯法 |
+|---|---|---|---|
+| plugin | 外掛 | featured image | 精選圖片 |
+| theme | 佈景主題 | permalink | 永久連結 |
+| widget | 小工具 | slug | 代稱 |
+| dashboard | 控制台 | excerpt | 內容摘要 |
+| sidebar | 資訊欄 | shortcode | 短代碼 |
+| header | 頁首 | taxonomy | 分類法 |
+| footer | 頁尾 | archive | 彙整 |
+| hook | 勾點 | tagline | 網站說明 |
+| administrator | 網站管理員 | contributor | 投稿者 |
+| activate | 啟用 | deactivate | 停用 |
+
+速查表以外的詞一律搜 `data/glossary-*.json`。範例見 `EXAMPLES.md`。
+
+## 驗證
+
+精簡版沒有驗證程式，交出譯文前逐項檢查：
+
+| 檢查 | 標準 | 完整版對應 |
+|---|---|---|
+| 空譯 | 每條 msgid 都有 msgstr（複數每一格都有） | `po.py validate` 錯誤 |
+| 佔位符 | 譯文的佔位符和原文一樣多、一樣的種類與編號 | `po.py validate` 錯誤 |
+| HTML 標籤 | 標籤和原文一致 | 警告 |
+| 首尾空白、結尾標點 | 和原文對應；結尾用全形標點 | 警告 |
+| 首字大小寫 | 原文小寫開頭時譯文不以大寫英文起頭 | 警告 |
+| 中國用語 | 譯文裡沒有 `taiwan-terms` 的 `cn` 欄用語 | 警告 |
+| 用詞一致 | 同一英文詞在整份檔案用同一個譯法 | 警告 |
+| 查詞的回答 | 譯法與命中列一致；查不到的已標「待補」 | — |
+
+## 完整版
+
+| 功能 | 精簡版 | 完整版（npm `taiwan-translate-skill`） |
+|---|---|---|
+| 詞彙表、用語對照、規則、範例 | 有（JSON、Markdown） | 有（CSV、Markdown） |
+| 查詞 | 搜 JSON 檔 | `search.py`（BM25）、`lookup.py`（整句列出命中詞） |
+| .po 抽取與把關 | 照上面的清單人工檢查 | `po.py extract`、`po.py validate`（有錯回 1） |
+| 待補記錄 | 只讀 `pending.json` | 寫入 `data/pending.csv` |
+| 自我測試、數字核對 | 無 | `test_tools.py`、`check_numbers.py` |

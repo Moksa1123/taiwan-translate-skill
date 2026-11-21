@@ -194,6 +194,7 @@ translate-cli/               npm package: the tw-translate installer (TypeScript
   assets/taiwan-translate/   the skill: SKILL.md, data/, scripts/, references/, evals/
   assets/templates/          per-platform install templates
 docs/guide.md                the long guide
+directory-plugin/            Claude directory edition: JSON + Markdown only (scripts/build_directory.py)
 README.md, README.zh-TW.md   this file and its Chinese version
 ```
 

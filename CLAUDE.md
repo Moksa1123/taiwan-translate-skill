@@ -21,6 +21,8 @@ taiwan-translate-skill/
 │   └── package.json
 ├── .claude-plugin/              # plugin.json（skills 指向 translate-cli/assets/taiwan-translate）、marketplace.json、icon
 ├── docs/guide.md               # README 移出來的長內容
+├── directory-plugin/           # Claude 官方目錄精簡版（只有 md／json／png）；改了 skill 後跑 python scripts/build_directory.py，再 --check
+├── scripts/build_directory.py  # 產生 directory-plugin/，樣板在 scripts/directory/
 ├── README.md                   # 英文主檔（官方目錄讀這份）；npm 的 translate-cli/README.md 由 npm run sync-readme 產生
 ├── README.zh-TW.md             # 中文對應，段落一一對應
 ├── LICENSE
